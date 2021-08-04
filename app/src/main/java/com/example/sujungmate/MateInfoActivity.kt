@@ -8,6 +8,7 @@ class MateInfoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mate_info)
 
-        // 주석
+        // 주석 추가
+        // 주석 추가
     }
 }
