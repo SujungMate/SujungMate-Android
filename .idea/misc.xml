@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidStudioProjects/SujungMate/app/src/main/res/layout/activity_login.xml" value="0.20153985507246377" />
         <entry key="..\:/AndroidStudioProjects/SujungMate/app/src/main/res/layout/activity_mate_info.xml" value="0.20153985507246377" />
+        <entry key="..\:/AndroidStudioProjects/SujungMate/app/src/main/res/layout/activity_sign_up2.xml" value="0.20153985507246377" />
       </map>
     </option>
   </component>

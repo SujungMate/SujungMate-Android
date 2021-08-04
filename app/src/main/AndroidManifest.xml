@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SujungMate">
         <activity
+            android:name=".MateTypeActivity"
+            android:exported="true" />
+        <activity
             android:name=".MateInfoActivity"
             android:exported="true" />
 
