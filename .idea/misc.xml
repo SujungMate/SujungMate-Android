@@ -3,17 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/tldto/AndroidStudioProjects/SujungMate/app/src/main/res/layout/activity_chat.xml" value="0.36614583333333334" />
-        <entry key="..\:/Users/tldto/AndroidStudioProjects/SujungMate/app/src/main/res/layout/activity_chat_manage.xml" value="0.33" />
-        <entry key="..\:/Users/tldto/AndroidStudioProjects/SujungMate/app/src/main/res/layout/activity_login.xml" value="0.22" />
-        <entry key="..\:/Users/tldto/AndroidStudioProjects/SujungMate/app/src/main/res/layout/activity_sign_up.xml" value="0.33" />
-        <entry key="..\:/Users/tldto/AndroidStudioProjects/SujungMate/app/src/main/res/layout/activity_sign_up2.xml" value="0.33" />
-        <entry key="..\:/Users/tldto/AndroidStudioProjects/SujungMate/app/src/main/res/layout/activity_sign_up3.xml" value="0.25" />
-        <entry key="..\:/Users/tldto/AndroidStudioProjects/SujungMate/app/src/main/res/layout/activity_sign_up4.xml" value="0.33" />
+        <entry key="..\:/AndroidStudioProjects/SujungMate/app/src/main/res/layout/activity_mate_info.xml" value="0.20153985507246377" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
