@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E3E3F0"
+    tools:context=".SignUpActivity4">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:text="@string/text_signupwarning"
+                android:textColor="@color/red"
+                tools:layout_editor_absoluteX="78dp"
+                tools:layout_editor_absoluteY="16dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="53dp"
+                    android:layout_marginTop="20dp"
+                    android:text="수강과목"
+                    android:textColor="@color/black"
+                    android:textSize="17dp"
+                    tools:layout_editor_absoluteX="54dp"
+                    tools:layout_editor_absoluteY="82dp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="53dp"
+                    android:layout_marginTop="5dp">
+                        <EditText
+                            android:id="@+id/lecture"
+                            android:layout_width="232dp"
+                            android:layout_height="30dp"
+                            android:background="#ffffff"
+                            android:hint="@string/prompt_lecture"
+                            android:inputType="text"
+                            android:selectAllOnFocus="true"
+                            tools:ignore="TouchTargetSizeCheck"
+                            tools:layout_editor_absoluteX="54dp"
+                            tools:layout_editor_absoluteY="113dp" />
+
+                        <EditText
+                            android:id="@+id/lecture2"
+                            android:layout_width="232dp"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="10dp"
+                            android:background="#ffffff"
+                            android:hint="@string/prompt_lecture"
+                            android:inputType="text"
+                            android:selectAllOnFocus="true"
+                            tools:ignore="TouchTargetSizeCheck"
+                            tools:layout_editor_absoluteX="54dp"
+                            tools:layout_editor_absoluteY="113dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="322dp"
+                android:layout_height="0.5dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="14dp"
+                android:background="#ADADAD" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="58dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="53dp"
+                    android:layout_marginTop="15dp"
+                    android:text="MBTI"
+                    android:textColor="@color/black"
+                    android:textSize="17dp"
+                    tools:layout_editor_absoluteX="54dp"
+                    tools:layout_editor_absoluteY="82dp" />
+
+                <Spinner
+                    android:id="@+id/mbti"
+                    android:layout_width="232dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="21dp"
+                    android:layout_gravity="center"
+                    android:background="#ffffff"
+                    android:hint="@string/prompt_name"
+                    android:inputType="text"
+                    android:selectAllOnFocus="true"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"
+                    tools:layout_editor_absoluteX="54dp"
+                    tools:layout_editor_absoluteY="113dp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="322dp"
+                android:layout_height="0.5dp"
+                android:layout_gravity="center"
+                android:background="#ADADAD" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="98dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="53dp"
+                    android:layout_marginTop="15dp"
+                    android:text="관심사"
+                    android:textColor="@color/black"
+                    android:textSize="17dp"
+                    tools:layout_editor_absoluteX="54dp"
+                    tools:layout_editor_absoluteY="82dp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="15dp"
+                    android:layout_gravity="center">
+
+                    <Spinner
+                        android:id="@+id/topinterest"
+                        android:layout_width="232dp"
+                        android:layout_height="30dp"
+                        android:background="#ffffff"
+                        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"
+                        tools:layout_editor_absoluteX="54dp"
+                        tools:layout_editor_absoluteY="113dp" />
+
+                    <Spinner
+                        android:id="@+id/underinterest"
+                        android:layout_width="232dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="10dp"
+                        android:background="#ffffff"
+                        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"
+                        tools:layout_editor_absoluteX="54dp"
+                        tools:layout_editor_absoluteY="113dp" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="322dp"
+                android:layout_height="0.5dp"
+                android:layout_gravity="center"
+                android:background="#ADADAD" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="78dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="53dp"
+                    android:layout_marginTop="15dp"
+                    android:text="프로필 사진"
+                    android:textColor="@color/black"
+                    android:textSize="17dp"
+                    tools:layout_editor_absoluteX="54dp"
+                    tools:layout_editor_absoluteY="82dp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="322dp"
+                android:layout_height="0.5dp"
+                android:layout_gravity="center"
+                android:background="#ADADAD" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="53dp"
+                        android:layout_marginTop="15dp"
+                        android:text="상태메세지 설정"
+                        android:textColor="@color/black"
+                        android:textSize="17dp"
+                        tools:layout_editor_absoluteX="54dp"
+                        tools:layout_editor_absoluteY="82dp"/>
+
+                        <EditText
+                            android:id="@+id/statusmessage"
+                            android:layout_width="232dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="53dp"
+                            android:layout_marginTop="5dp"
+                            android:background="#ffffff"
+                            android:hint="@string/prompt_message"
+                            android:inputType="text"
+                            android:selectAllOnFocus="true"
+                            tools:ignore="TouchTargetSizeCheck"
+                            tools:layout_editor_absoluteX="54dp"
+                            tools:layout_editor_absoluteY="113dp" />
+            </LinearLayout>
+            <Button
+                android:id="@+id/nextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="61sp"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="20dp"
+                android:layout_gravity="center_horizontal"
+                android:backgroundTint="#7075B6"
+                android:text="@string/action_sign_up"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
