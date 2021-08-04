@@ -27,7 +27,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="645e217a-e782-41c4-8ad2-fc578ce22524" name="Default Changelist" comment="작업 : 매칭 유형 선택" />
+    <list default="true" id="645e217a-e782-41c4-8ad2-fc578ce22524" name="Default Changelist" comment="작업 : 매칭 유형 선택">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
