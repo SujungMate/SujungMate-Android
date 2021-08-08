@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="large_category">
+        <item>대분류</item>
+        <item>엔터테인먼트·예술</item>
+        <item>생활·노하우·쇼핑</item>
+        <item>취미·여가·여행</item>
+        <item>지식·동향</item>
+    </string-array>
+</resources>

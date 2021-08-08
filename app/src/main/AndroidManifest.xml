@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SujungMate">
         <activity
+            android:name=".MateSearchActivity"
+            android:exported="true" />
+        <activity
             android:name=".MateTypeActivity"
             android:exported="true" />
         <activity
@@ -18,15 +21,11 @@
 
         <meta-data
             android:name="com.google.android.actions"
-            android:resource="@xml/drawble_right_image_customise" />
+            android:resource="@drawable/drawble_right_image_customise" />
 
         <activity
             android:name=".ChatActivity"
             android:exported="true" />
-        <activity
-            android:name=".ui.login.testActivity"
-            android:exported="true"
-            android:label="@string/title_activity_test" />
         <activity
             android:name=".ChatManageActivity"
             android:exported="true" />

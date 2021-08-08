@@ -35,4 +35,24 @@
     <string name="text_signupwarning">※ 잘못된 정보 입력으로 발생하는 모든 일은\n사용자에게 책임이 있음을 알립니다.</string>
     <string name="text_star">*</string>
     <string name="title_activity_test">testActivity</string>
+
+    <string name="title_MateType">매칭 유형 선택</string>
+    <string name="type1_randomMatch">랜덤 매칭</string>
+    <string name="type2_detailsMatch">세부 설정 후 매칭</string>
+    <string name="explain_random">무작위로 상대방과 매칭됩니다.</string>
+    <string name="explain_details">원하는 조건을 입력하면\n그에 맞는 상대방과 매칭됩니다.</string>
+    <string name="title_MateInfo">매칭 세부 설정</string>
+    <string name="select_relationships">짝수정 관계</string>
+    <string name="r1_junior">후배</string>
+    <string name="r2_classmate">동기</string>
+    <string name="r3_senior">선배</string>
+    <string name="text_interestingMajor">관심 학과</string>
+    <string name="text_lectures">수강 과목</string>
+    <string name="hint_lectures">수강 과목을 입력하세요</string>
+    <string name="text_MBTI">MBTI</string>
+    <string name="text_interest">관심사</string>
+    <string name="text_goMatch">매칭하기</string>
+    <string name="title_mateSearch">매칭 결과</string>
+    <string name="text_goMateManage">매칭관리로 이동</string>
+
 </resources>
