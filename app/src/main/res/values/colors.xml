@@ -8,4 +8,14 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="red">#ff0000</color>
+
+    <color name="light_purple">#EDE8F2</color>
+    <color name="dark_purple">#A27EBE</color>
+    <color name="light_blue">#E3E3F0</color>
+    <color name="dark_blue">#7075B6</color>
+
+    <color name="toggle_on">#A5A8DB</color>
+    <color name="light_gray">#F6F6F6</color>
+
+    <color name="profile_color">#FAFAFA</color>
 </resources>
