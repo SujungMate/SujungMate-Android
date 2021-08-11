@@ -10,9 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SujungMate">
         <activity
-            android:name=".MateSearchActivity"
-            android:exported="true" />
-        <activity
             android:name=".MateTypeActivity"
             android:exported="true" />
         <activity
@@ -22,7 +19,6 @@
         <meta-data
             android:name="com.google.android.actions"
             android:resource="@drawable/drawble_right_image_customise" />
-
         <activity
             android:name=".ChatActivity"
             android:exported="true" />
