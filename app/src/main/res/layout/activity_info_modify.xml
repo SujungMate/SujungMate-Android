@@ -4,7 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#E3E3F0"
     tools:context=".InfoModifyActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar2"
+        android:layout_width="411dp"
+        android:layout_height="wrap_content"
+        android:background="#F6F6F6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/mateInfoTitle_AIM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="13dp"
+        android:layout_marginBottom="70dp"
+        android:text="내 정보 수정"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView8"
@@ -12,7 +37,7 @@
         android:layout_height="43dp"
         android:layout_marginStart="72dp"
         android:layout_marginLeft="72dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="66dp"
         android:layout_marginBottom="1dp"
         android:gravity="center"
         android:text="※ 잘못된 정보 입력으로 발생하는 모든 일은 사용자에게 책임이 있음을 알립니다."
@@ -29,11 +54,11 @@
         android:layout_marginLeft="1dp"
         android:layout_marginEnd="1dp"
         android:layout_marginRight="1dp"
-        android:layout_marginBottom="1dp"
+        android:layout_marginBottom="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8">
+        app:layout_constraintTop_toBottomOf="@+id/mateInfoTitle_AIM">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -85,7 +110,7 @@
                 android:background="#F6F6F6"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="   닉네임 입력"
+                android:text="    닉네임 입력"
                 android:textColor="#ADADAD"
                 android:textSize="15sp"
                 tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
@@ -386,7 +411,7 @@
                 android:background="#F6F6F6"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="   상태메시지 입력"
+                android:text="    상태메시지 입력"
                 android:textColor="#ADADAD"
                 android:textSize="15sp"
                 tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />

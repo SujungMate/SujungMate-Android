@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#EDE8F2"
     tools:context=".MateManageActivity">
 
     <TextView
@@ -13,9 +14,11 @@
         android:layout_marginStart="30dp"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="30dp"
+        android:layout_marginBottom="540dp"
         android:text="매칭 관리"
         android:textColor="#222222"
         android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="35dp"
         android:layout_marginLeft="35dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="61dp"
         android:layout_marginEnd="35dp"
         android:layout_marginRight="35dp"
         android:ems="10"
@@ -35,7 +38,7 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
@@ -56,4 +59,46 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="TouchTargetSizeCheck" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView12">
+
+        <Button
+            android:id="@+id/button11"
+            android:layout_width="138dp"
+            android:layout_height="64dp"
+            android:layout_weight="1"
+            android:background="#F6F6F6"
+            android:text="마이페이지"
+            android:textColor="#ADADAD"
+            tools:ignore="TextContrastCheck" />
+
+        <Button
+            android:id="@+id/button12"
+            android:layout_width="138dp"
+            android:layout_height="64dp"
+            android:layout_weight="1"
+            android:background="#F6F6F6"
+            android:text="채팅방"
+            android:textColor="#ADADAD"
+            tools:ignore="TextContrastCheck" />
+
+        <Button
+            android:id="@+id/button13"
+            android:layout_width="138dp"
+            android:layout_height="64dp"
+            android:layout_weight="1"
+            android:background="#CEBAE1"
+            android:text="매칭"
+            android:textColor="#FFFFFF"
+            tools:ignore="TextContrastCheck" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
