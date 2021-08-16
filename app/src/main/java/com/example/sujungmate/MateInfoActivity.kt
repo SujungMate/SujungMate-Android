@@ -28,7 +28,7 @@ class MateInfoActivity : AppCompatActivity() {
 
         // 관심 학과 드롭다운(Spinner)
         val majors = resources.getStringArray(R.array.interesting_major) //전공 배열 가져오기
-        val spinner : Spinner = findViewById(R.id.major) // 스피너 가져오기
+        val spinner : Spinner = findViewById(R.id.major_spinner_signup3) // 스피너 가져오기
         ArrayAdapter.createFromResource(
             this,
             R.array.interesting_major,

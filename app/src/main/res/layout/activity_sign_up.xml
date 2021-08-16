@@ -7,10 +7,32 @@
     android:background="#E3E3F0"
     tools:context=".SignUpActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_signup"
+        android:layout_width="411dp"
+        android:layout_height="wrap_content"
+        android:background="#F6F6F6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/text_signup"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="145dp"
+            tools:layout_editor_absoluteY="14dp" />
+
+    </androidx.appcompat.widget.Toolbar>
+
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="0dp"
         android:layout_height="645dp"
+        android:layout_marginTop="55dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -31,9 +53,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#00ff0000"
+                android:gravity="start|center_vertical"
                 android:text="@string/action_service_argee_0"
-                android:textColor="#414141"
-                android:gravity="start|center_vertical"/>
+                android:textColor="#414141" />
+
             <View
                 android:layout_width="380dp"
                 android:layout_height="0.1dp"
@@ -152,10 +175,10 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
                 android:text="회원가입 및 이용 약관에 동의하시겠습니까"
-                />
+                tools:ignore="TouchTargetSizeCheck" />
 
             <Button
-                android:id="@+id/nextButton"
+                android:id="@+id/next_button_signup"
                 android:layout_width="84.6sp"
                 android:layout_height="61sp"
                 android:layout_gravity="center_horizontal"
@@ -163,6 +186,7 @@
                 android:backgroundTint="#7075B6"
                 android:textStyle="bold"
                 android:textSize="20dp"
+                android:textColor="@color/white"
                 android:text="@string/action_next" />
         </LinearLayout>
 
