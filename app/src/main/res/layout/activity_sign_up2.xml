@@ -7,54 +7,76 @@
     android:background="#E3E3F0"
     tools:context=".SignUpActivity2">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_signup"
+        android:layout_width="411dp"
+        android:layout_height="wrap_content"
+        android:background="#F6F6F6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/text_signup"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="145dp"
+            tools:layout_editor_absoluteY="14dp" />
+
+    </androidx.appcompat.widget.Toolbar>
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/email_textview_signup2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:layout_marginLeft="4dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="112dp"
         android:text="@string/text_email"
         android:textColor="@color/black"
         android:textSize="17sp"
         android:textStyle="normal"
-        app:layout_constraintStart_toStartOf="@+id/schoolemail"
+        app:layout_constraintStart_toStartOf="@+id/schoolemail_edittext_signup2"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/schoolemail"
+        android:id="@+id/schoolemail_edittext_signup2"
         android:layout_width="230dp"
         android:layout_height="30dp"
         android:layout_marginBottom="75dp"
         android:background="#ffffff"
         android:hint="@string/prompt_email"
+        android:paddingLeft="8dp"
         android:inputType="textEmailAddress"
         android:selectAllOnFocus="true"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintBottom_toTopOf="@+id/emailconfirm_textview_signup2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/email_textview_signup2"
         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck,TextContrastCheck" />
 
     <EditText
-        android:id="@+id/confirmNum"
+        android:id="@+id/confirmNum_edittext_signup2"
         android:layout_width="230dp"
         android:layout_height="30dp"
         android:layout_marginTop="4dp"
         android:background="#ffffff"
         android:hint="@string/prompt_confirmnum"
+        android:paddingLeft="8dp"
         android:inputType="textEmailAddress"
         android:selectAllOnFocus="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/emailconfirm_textview_signup2"
         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck,TextContrastCheck" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/emailconfirm_button_signup2"
         android:layout_width="wrap_content"
         android:layout_height="46sp"
         android:layout_gravity="center_horizontal"
@@ -62,28 +84,31 @@
         android:text="@string/text_comfirmnumber"
         android:textSize="11sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/emailconfirm_textview_signup2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/schoolemail"
+        app:layout_constraintTop_toBottomOf="@+id/schoolemail_edittext_signup2"
         app:layout_constraintVertical_bias="0.204"
         tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 
     <Button
-        android:id="@+id/nextButton"
+        android:id="@+id/next_button_signup2"
         android:layout_width="84.6sp"
         android:layout_height="61sp"
         android:layout_gravity="center_horizontal"
         android:backgroundTint="#7075B6"
         android:text="@string/action_next"
+        android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/confirmNum"
-        app:layout_constraintVertical_bias="0.181" />
+        app:layout_constraintTop_toBottomOf="@+id/confirmNum_edittext_signup2"
+        app:layout_constraintVertical_bias="0.227" />
 
     <TextView
         android:id="@+id/textView"
@@ -92,11 +117,11 @@
         android:text="@string/text_sungshinemail"
         android:textColor="@color/black"
         android:textSize="10sp"
-        app:layout_constraintBottom_toBottomOf="@+id/schoolemail"
-        app:layout_constraintEnd_toEndOf="@+id/schoolemail"
+        app:layout_constraintBottom_toBottomOf="@+id/schoolemail_edittext_signup2"
+        app:layout_constraintEnd_toEndOf="@+id/schoolemail_edittext_signup2"
         app:layout_constraintHorizontal_bias="0.954"
-        app:layout_constraintStart_toStartOf="@+id/schoolemail"
-        app:layout_constraintTop_toTopOf="@+id/schoolemail"
+        app:layout_constraintStart_toStartOf="@+id/schoolemail_edittext_signup2"
+        app:layout_constraintTop_toTopOf="@+id/schoolemail_edittext_signup2"
         app:layout_constraintVertical_bias="0.44" />
 
     <TextView
@@ -107,16 +132,16 @@
         android:textColor="@color/red"
         android:textSize="10sp"
         android:textStyle="normal"
-        app:layout_constraintBottom_toBottomOf="@+id/confirmNum"
-        app:layout_constraintEnd_toEndOf="@+id/confirmNum"
+        app:layout_constraintBottom_toBottomOf="@+id/confirmNum_edittext_signup2"
+        app:layout_constraintEnd_toEndOf="@+id/confirmNum_edittext_signup2"
         app:layout_constraintHorizontal_bias="0.966"
-        app:layout_constraintStart_toStartOf="@+id/confirmNum"
-        app:layout_constraintTop_toTopOf="@+id/confirmNum"
+        app:layout_constraintStart_toStartOf="@+id/confirmNum_edittext_signup2"
+        app:layout_constraintTop_toTopOf="@+id/confirmNum_edittext_signup2"
         app:layout_constraintVertical_bias="0.466"
         tools:ignore="TextContrastCheck" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/emailconfirm_textview_signup2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="344dp"
@@ -128,6 +153,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.379"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/schoolemail" />
+        app:layout_constraintTop_toBottomOf="@+id/schoolemail_edittext_signup2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
