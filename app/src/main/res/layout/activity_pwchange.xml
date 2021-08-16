@@ -2,22 +2,23 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_pwchange"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#E3E3F0"
     tools:context=".PWChangeActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar2"
+        android:id="@+id/toolbar_pwchange"
         android:layout_width="411dp"
         android:layout_height="wrap_content"
         android:background="#F6F6F6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/pwChangeTitle"
+        android:id="@+id/title_pwchange"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -30,21 +31,21 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView29"
+        android:id="@+id/text1_pwchange"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="73dp"
         android:text="기존 비밀번호"
         android:textColor="#000000"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName3"
-        app:layout_constraintEnd_toStartOf="@+id/button5"
+        app:layout_constraintBottom_toTopOf="@+id/oldPW_pwchange"
+        app:layout_constraintEnd_toStartOf="@+id/modify_pwchange"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/view11"
+        app:layout_constraintStart_toStartOf="@+id/line_pwchange"
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
-        android:id="@+id/view11"
+        android:id="@+id/line_pwchange"
         android:layout_width="0dp"
         android:layout_height="0.1dp"
         android:layout_marginStart="55dp"
@@ -54,14 +55,14 @@
         android:layout_marginRight="55dp"
         android:layout_marginBottom="272dp"
         android:background="#ADADAD"
-        app:layout_constraintBottom_toTopOf="@+id/button5"
+        app:layout_constraintBottom_toTopOf="@+id/modify_pwchange"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/oldPW_pwchange"
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_marginStart="58dp"
@@ -74,15 +75,15 @@
         android:text="    기존 비밀번호 입력"
         android:textColor="#ADADAD"
         android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/view11"
+        app:layout_constraintBottom_toTopOf="@+id/line_pwchange"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView29"
+        app:layout_constraintTop_toBottomOf="@+id/text1_pwchange"
         tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/modify_pwchange"
         android:layout_width="75dp"
         android:layout_height="0dp"
         android:layout_marginStart="158dp"
@@ -93,10 +94,10 @@
         app:backgroundTint="#7075B6"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view11" />
+        app:layout_constraintTop_toBottomOf="@+id/line_pwchange" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName4"
+        android:id="@+id/newPW_pwchange"
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_marginStart="58dp"
@@ -111,15 +112,15 @@
         android:text="   새 비밀번호 입력"
         android:textColor="#ADADAD"
         android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/view13"
+        app:layout_constraintBottom_toTopOf="@+id/line2_pwchange"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView18"
+        app:layout_constraintTop_toBottomOf="@+id/text2_pwchange"
         tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 
     <View
-        android:id="@+id/view13"
+        android:id="@+id/line2_pwchange"
         android:layout_width="0dp"
         android:layout_height="0.1dp"
         android:layout_marginStart="55dp"
@@ -128,26 +129,26 @@
         android:layout_marginRight="55dp"
         android:layout_marginBottom="9dp"
         android:background="#ADADAD"
-        app:layout_constraintBottom_toTopOf="@+id/textView28"
+        app:layout_constraintBottom_toTopOf="@+id/text3_pwchange"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName4" />
+        app:layout_constraintTop_toBottomOf="@+id/newPW_pwchange" />
 
     <TextView
-        android:id="@+id/textView28"
+        android:id="@+id/text3_pwchange"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="7dp"
         android:text="새 비밀번호 확인"
         android:textColor="#000000"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName5"
-        app:layout_constraintStart_toStartOf="@+id/view13"
-        app:layout_constraintTop_toBottomOf="@+id/view13" />
+        app:layout_constraintBottom_toTopOf="@+id/newPW2_pwchange"
+        app:layout_constraintStart_toStartOf="@+id/line2_pwchange"
+        app:layout_constraintTop_toBottomOf="@+id/line2_pwchange" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName5"
+        android:id="@+id/newPW2_pwchange"
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_marginStart="58dp"
@@ -165,19 +166,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView28"
+        app:layout_constraintTop_toBottomOf="@+id/text3_pwchange"
         tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
 
     <TextView
-        android:id="@+id/textView18"
+        android:id="@+id/text2_pwchange"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="새 비밀번호"
         android:textColor="#000000"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@id/view13"
-        app:layout_constraintStart_toStartOf="@+id/view11"
-        app:layout_constraintTop_toBottomOf="@+id/view11"
+        app:layout_constraintBottom_toTopOf="@id/line2_pwchange"
+        app:layout_constraintStart_toStartOf="@+id/line_pwchange"
+        app:layout_constraintTop_toBottomOf="@+id/line_pwchange"
         app:layout_constraintVertical_bias="0.173" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
