@@ -11,7 +11,7 @@
     tools:context=".MateInfoActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar2"
+        android:id="@+id/toolbar_mateInfo"
         android:layout_width="411dp"
         android:layout_height="wrap_content"
         android:background="#F6F6F6"
@@ -53,7 +53,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline6"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar2">
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_mateInfo">
 
         <TextView
             android:id="@+id/textView"
@@ -75,28 +75,31 @@
             android:paddingLeft="10dp">
 
             <ToggleButton
-                android:id="@+id/junior"
+                android:id="@+id/junior_mateInfo"
                 android:layout_width="60dp"
                 android:layout_height="35dp"
                 android:background="@drawable/relationship_toggle"
+                android:text="후배"
                 android:textOff="@string/r1_junior"
                 android:textOn="@string/r1_junior" />
 
             <ToggleButton
-                android:id="@+id/classmate"
+                android:id="@+id/classmate_mateInfo"
                 android:layout_width="60dp"
                 android:layout_height="35dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/relationship_toggle"
+                android:text="동기"
                 android:textOff="@string/r2_classmate"
                 android:textOn="@string/r2_classmate" />
 
             <ToggleButton
-                android:id="@+id/senior"
+                android:id="@+id/senior_mateInfo"
                 android:layout_width="60dp"
                 android:layout_height="35dp"
                 android:background="@drawable/relationship_toggle"
+                android:text="선배"
                 android:textOff="@string/r3_senior"
                 android:textOn="@string/r3_senior" />
         </LinearLayout>
@@ -119,7 +122,7 @@
             android:textSize="18sp" />
 
         <Spinner
-            android:id="@+id/major"
+            android:id="@+id/major_mateInfo"
             android:layout_width="300dp"
             android:layout_height="40dp"
             android:layout_gravity="center"
@@ -147,7 +150,7 @@
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/lecture"
+            android:id="@+id/lecture_mateInfo"
             android:layout_width="300dp"
             android:layout_height="40dp"
             android:layout_gravity="center"
@@ -183,7 +186,7 @@
                 android:textSize="18sp" />
 
             <Spinner
-                android:id="@+id/MBTI"
+                android:id="@+id/MBTI_mateInfo"
                 android:layout_width="250dp"
                 android:layout_height="40dp"
                 android:background="@drawable/spinner_bg"
@@ -224,7 +227,7 @@
                 android:paddingBottom="10dp">
 
                 <Spinner
-                    android:id="@+id/interest1"
+                    android:id="@+id/interest1_mateInfo"
                     android:layout_width="250dp"
                     android:layout_height="40dp"
                     android:background="@drawable/spinner_bg"
@@ -233,7 +236,7 @@
                     android:spinnerMode="dropdown" />
 
                 <Spinner
-                    android:id="@+id/interest2"
+                    android:id="@+id/interest2_mateInfo"
                     android:layout_width="250dp"
                     android:layout_height="40dp"
                     android:layout_marginTop="5dp"
