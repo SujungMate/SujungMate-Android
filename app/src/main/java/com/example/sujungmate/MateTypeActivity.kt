@@ -16,7 +16,7 @@ class MateTypeActivity : AppCompatActivity() {
         Toast.makeText(application, "MateTypeActivity, 매칭유형 선택 Activity입니다.", Toast.LENGTH_LONG).show()
 
         // 뒤로가기 버튼
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        val toolbar = findViewById<Toolbar>(R.id.toolbar_mateType)
         setSupportActionBar(toolbar)
         val ab = supportActionBar!!
         ab.setDisplayShowTitleEnabled(false)
