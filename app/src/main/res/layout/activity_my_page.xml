@@ -2,13 +2,14 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_myPage"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#EDE8F2"
     tools:context=".MyPageActivity">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/profileImage_myPage"
         android:layout_width="0dp"
         android:layout_height="115dp"
         android:layout_marginStart="32dp"
@@ -17,15 +18,15 @@
         android:layout_marginEnd="4dp"
         android:layout_marginRight="4dp"
         android:layout_marginBottom="77dp"
-        app:layout_constraintBottom_toTopOf="@+id/view12"
-        app:layout_constraintEnd_toStartOf="@+id/textView5"
+        app:layout_constraintBottom_toTopOf="@+id/line_myPage"
+        app:layout_constraintEnd_toStartOf="@+id/statusMessage_myPage"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/graycircle" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/nickname_myPage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="162dp"
@@ -33,35 +34,35 @@
         android:text="닉네임"
         android:textColor="#222222"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@id/textView7"
+        app:layout_constraintBottom_toTopOf="@id/studentID_myPage"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button3"
-        app:layout_constraintTop_toTopOf="@+id/textView7" />
+        app:layout_constraintStart_toEndOf="@+id/modifyBtn_myPage"
+        app:layout_constraintTop_toTopOf="@+id/studentID_myPage" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/statusMessage_myPage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="나의 상태메시지"
         android:textColor="#757575"
-        app:layout_constraintEnd_toStartOf="@+id/textView6"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintEnd_toStartOf="@+id/major_myPage"
+        app:layout_constraintStart_toEndOf="@+id/profileImage_myPage"
+        app:layout_constraintTop_toBottomOf="@+id/major_myPage" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/studentID_myPage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="17dp"
         android:text="21학번"
         android:textColor="#582F81"
         android:textSize="13dp"
-        app:layout_constraintStart_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toTopOf="@+id/textView6" />
+        app:layout_constraintStart_toStartOf="@+id/major_myPage"
+        app:layout_constraintTop_toTopOf="@+id/major_myPage" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/major_myPage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="80dp"
@@ -70,26 +71,26 @@
         android:text="컴퓨터공학과"
         android:textColor="#582F81"
         android:textSize="13dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView5"
+        app:layout_constraintBottom_toTopOf="@+id/statusMessage_myPage"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
+        app:layout_constraintStart_toEndOf="@+id/statusMessage_myPage"
+        app:layout_constraintTop_toBottomOf="@+id/modifyBtn_myPage" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/modifyBtn_myPage"
         android:layout_width="35dp"
         android:layout_height="40dp"
         android:layout_marginStart="127dp"
         android:layout_marginLeft="127dp"
         android:layout_marginTop="29dp"
         app:backgroundTint="#ADADAD"
-        app:layout_constraintBottom_toTopOf="@+id/textView6"
+        app:layout_constraintBottom_toTopOf="@+id/major_myPage"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
     <TextView
-        android:id="@+id/textView30"
+        android:id="@+id/sujungMate_myPage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
@@ -99,11 +100,11 @@
         android:textColor="#656565"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/view12"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintStart_toStartOf="@+id/line_myPage"
+        app:layout_constraintTop_toBottomOf="@+id/profileImage_myPage" />
 
     <View
-        android:id="@+id/view12"
+        android:id="@+id/line_myPage"
         android:layout_width="0dp"
         android:layout_height="0.1dp"
         android:layout_marginStart="40dp"
@@ -115,28 +116,29 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView30" />
+        app:layout_constraintTop_toBottomOf="@id/sujungMate_myPage" />
 
     <LinearLayout
-        android:id="@+id/linearLayout3"
+        android:id="@+id/sujungMateLayout_myPage"
         android:layout_width="330dp"
         android:layout_height="290dp"
         android:layout_marginTop="212dp"
         android:layout_marginBottom="96dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintBottom_toTopOf="@+id/navigation_myPage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
+            android:id="@+id/sujungMateLayout2_myPage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView31"
+                android:id="@+id/sujungMateNickName_myPage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -145,7 +147,7 @@
                 android:textSize="20sp" />
 
             <TextView
-                android:id="@+id/textView32"
+                android:id="@+id/sujungMateInfo_myPage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -156,7 +158,7 @@
         </LinearLayout>
 
         <View
-            android:id="@+id/view14"
+            android:id="@+id/subLine_myPage"
             android:layout_width="match_parent"
             android:layout_height="0.1dp"
             android:layout_marginTop="5dp"
@@ -164,12 +166,13 @@
             android:background="#ADADAD" />
 
         <LinearLayout
+            android:id="@+id/sujungMateLayout3_myPage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView33"
+                android:id="@+id/sujungMateNickName2_myPage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -178,7 +181,7 @@
                 android:textSize="20sp" />
 
             <TextView
-                android:id="@+id/textView34"
+                android:id="@+id/sujungMateInfo2_myPage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -191,17 +194,17 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
+        android:id="@+id/navigation_myPage"
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:layout_marginTop="458dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/profileImage_myPage"
         tools:layout_editor_absoluteX="-40dp">
 
         <Button
-            android:id="@+id/button15"
+            android:id="@+id/myPageBtn_myPage"
             android:layout_width="138dp"
             android:layout_height="64dp"
             android:layout_weight="1"
@@ -211,7 +214,7 @@
             tools:ignore="TextContrastCheck" />
 
         <Button
-            android:id="@+id/button16"
+            android:id="@+id/chatRoomBtn_myPage"
             android:layout_width="138dp"
             android:layout_height="64dp"
             android:layout_weight="1"
@@ -221,7 +224,7 @@
             tools:ignore="TextContrastCheck" />
 
         <Button
-            android:id="@+id/button17"
+            android:id="@+id/mateBtn_myPage"
             android:layout_width="138dp"
             android:layout_height="64dp"
             android:layout_weight="1"
