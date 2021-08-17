@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="sub_category_title">
+        <item>소분류</item>
+    </string-array>
+
     <string-array name="sub_category_entertainment">
-        <!--        <item>소분류</item>-->
         <item>문학·책</item>
         <item>영화</item>
         <item>미술·디자인</item>
@@ -14,7 +17,6 @@
     </string-array>
 
     <string-array name="sub_category_dailyLife">
-        <!--        <item>소분류</item>-->
         <item>일상·생각</item>
         <item>애완·반려동물</item>
         <item>좋은글·이미지</item>
@@ -26,7 +28,6 @@
     </string-array>
 
     <string-array name="sub_category_hobby">
-        <!--        <item>소분류</item>-->
         <item>게임</item>
         <item>스포츠</item>
         <item>사진</item>
@@ -38,7 +39,6 @@
     </string-array>
 
     <string-array name="sub_category_knowledge">
-        <!--        <item>소분류</item>-->
         <item>IT·컴퓨터</item>
         <item>사회·정치</item>
         <item>건강·의학</item>
