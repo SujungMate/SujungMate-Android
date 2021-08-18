@@ -8,6 +8,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.example.sujungmate.LoginActivity
+import com.example.sujungmate.MyPageActivity
 import com.example.sujungmate.R
 import com.example.sujungmate.SignUpActivity4
 import com.example.sujungmate.tables.ChatMessage
@@ -30,7 +31,33 @@ class ChatManageActivity : AppCompatActivity() {
         setContentView(R.layout.activity_chat_manage)
         recyclerview_chat_manage.adapter = adapter
         // 최근 사용자를 vertical로 나눠서 밑에 선 생기게 꾸밈
+        // 레이아웃 꾸미는 걸로 변경함
         recyclerview_chat_manage.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
+
+        // 바텀네비바 옵션
+        bottom_navbar.setOnNavigationItemReselectedListener { item ->
+            when (item?.itemId) {
+                // 새메세지
+                // manifest.xml에 parent_activity를 추가해서 뒤로가기 자동으로 생성
+                R.id.menu_new_message -> {
+                    val intent = Intent(this, NewMessagesActivity::class.java)
+                    startActivity(intent)
+                }
+                // 로그아웃
+                R.id.menu_sign_out -> {
+                    FirebaseAuth.getInstance().signOut()
+                    val intent = Intent(this, LoginActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    startActivity(intent)
+                }
+                R.id.menu_my_page -> {
+                    val intent = Intent(this, MyPageActivity::class.java)
+                    startActivity(intent)
+                }
+            }
+        }
+
+
 
         // set item click listener on your adapter
         // 아이템 클릭시 이동
@@ -54,6 +81,7 @@ class ChatManageActivity : AppCompatActivity() {
         verifyUserIsLoggedIn()
     }
 
+
     // hashMap으로 최근 메세지 내용 key, value값 맞춰서 보여주게하기
     val latestMessagesMap = HashMap<String, ChatMessage>()
 
@@ -63,6 +91,7 @@ class ChatManageActivity : AppCompatActivity() {
             adapter.add(LatestMessageRow(it))
         }
     }
+
 
     // 가장 최근 메세지 보이기
     private fun listenForLatestMessages(){
@@ -95,13 +124,15 @@ class ChatManageActivity : AppCompatActivity() {
             }
         })
     }
+
     val adapter = GroupAdapter<ViewHolder>()
 
-    /*
-    private fun setupDummyRows(){
-        adapter.add(LatestMessageRow())
-    }
-     */
+
+    //private fun setupDummyRows(){
+    //    adapter.add(LatestMessageRow())
+    //    adapter.add(LatestMessageRow())
+    //}
+
 
     private fun fetchCurrentUser(){
         val uid = FirebaseAuth.getInstance().uid
@@ -128,6 +159,8 @@ class ChatManageActivity : AppCompatActivity() {
         }
     }
 
+    // 액션바일때의 옵션
+    /*
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item?.itemId) {
             // 새메세지
@@ -143,6 +176,10 @@ class ChatManageActivity : AppCompatActivity() {
                 intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(intent)
             }
+            R.id.menu_my_page -> {
+                val intent = Intent(this, MyPageActivity::class.java)
+                startActivity(intent)
+            }
         }
         return super.onOptionsItemSelected(item)
     }
@@ -152,4 +189,5 @@ class ChatManageActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.nav_menu,menu)
         return super.onCreateOptionsMenu(menu)
     }
+     */
 }

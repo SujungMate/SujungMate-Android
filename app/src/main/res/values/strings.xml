@@ -39,6 +39,7 @@
     <string name="text_signup">회원가입</string>
     <string name="title_activity_test">testActivity</string>
     <string name="text_signupmessage">수정이 여러분 반갑습니다!\n가입을 통해 짝수정을 만나보세요.</string>
+    <string name="text_chatmanage">채팅 목록</string>
 
     <string name="title_MateType">매칭 유형 선택</string>
     <string name="type1_randomMatch">랜덤 매칭</string>
