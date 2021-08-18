@@ -19,7 +19,7 @@ class MyAdapter(private val userList : ArrayList<Users>) : RecyclerView.Adapter<
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = userList[position]
 
-        holder.PROFILE.text = currentItem.profile_img.toString()
+        //holder.PROFILE.text = currentItem.profile_img.toString()
         holder.NAME.text = currentItem.nickname
         holder.MAJOR.text = currentItem.major
         holder.MESSAGE.text = currentItem.msg
@@ -33,7 +33,7 @@ class MyAdapter(private val userList : ArrayList<Users>) : RecyclerView.Adapter<
     }
 
     class MyViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
-        val PROFILE : TextView = itemView.findViewById(R.id.tv_PROFILE)
+        // val PROFILE : TextView = itemView.findViewById(R.id.tv_PROFILE)
         val NAME : TextView = itemView.findViewById(R.id.tv_NAME)
         val MAJOR : TextView = itemView.findViewById(R.id.tv_MAJOR)
         val MESSAGE : TextView = itemView.findViewById(R.id.tv_MESSAGE)
