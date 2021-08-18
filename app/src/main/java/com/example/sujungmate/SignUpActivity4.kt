@@ -106,7 +106,7 @@ class SignUpActivity4 : AppCompatActivity() {
                 Log.d("SignUpActivity4","we saved the user's image,name,major to Firebase Database")
 
                 // 회원가입 후 새로 메세지 액티비티로 연결
-                val intent = Intent(this, ChatManageActivity::class.java)
+                val intent = Intent(this, MyPageActivity::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(intent)
 
