@@ -57,8 +57,6 @@ class SignUpActivity3 : AppCompatActivity() {
             val nickname = nickname_edittext_signup3.text.toString()
             val major = major_spinner_signup3.selectedItem.toString()
             uploadImagetoFirebaseStorage(nickname, major)
-            val intent = Intent(this, SignUpActivity4::class.java)
-            startActivity(intent)
         }
 
         // 채연이 코드
