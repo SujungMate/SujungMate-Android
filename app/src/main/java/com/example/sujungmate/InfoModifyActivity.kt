@@ -71,22 +71,23 @@ class InfoModifyActivity : AppCompatActivity() {
 
             ref.addListenerForSingleValueEvent(object: ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
+                    currentUser = snapshot.getValue(Users::class.java)
                     Log.d("onDataChange", "Function worked")
 
                     var user : Users = Users()
 
-                    // val STUNUM = currentUser!!.stuNum
                     // val profileImg = currentUser!!.profile_img
                     // Log.d("img", "img stored in profileImg")
 
-                    Log.d("img", "img stored in users")
+                    user.stuNum = currentUser!!.stuNum
                     user.nickname = nickname_infoModify.text.toString()
                     user.major = major_infoModify.selectedItem.toString()
                     user.lecture = lecture_infoModify.text.toString()
                     user.mbti = mbti_infoModify.selectedItem.toString()
                     user.interest = interest1_infoModify.selectedItem.toString()
                     user.msg = statusMessage_infoModify.text.toString()
-                    Log.d("data", "data stored")
+                    user.profile_img = currentUser!!.profile_img
+                    Log.d("profile_img", "img stored in users {$currentUser!!.profile_img}\n")
 
                     // 이미지는 추후 반영
                     // user.profile_img = currentUser!!.profile_img
@@ -103,6 +104,8 @@ class InfoModifyActivity : AppCompatActivity() {
 
                 }
             })
+            val intent = Intent(this, MyPageActivity::class.java)
+            startActivity(intent)
         }
     }
 
