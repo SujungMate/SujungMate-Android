@@ -14,4 +14,21 @@ data class Users(
     var interest : String? = "", // 관심사
     var msg: String? = null,  // 상태메시지
     var profile_img : String = ""
-): Parcelable
+) : Parcelable, Comparable<Users> {
+    // 학번 비교 함수
+    override fun compareTo(other: Users): Int {
+        try {
+            val thisID : Int = this.stuNum.toInt() / 10000  // 학번 4자리 (나)
+            val otherID : Int = this.stuNum.toInt() / 10000 // 학번 4자리 (상대방)
+
+            when {
+                thisID > otherID -> return 1 // other : 선배
+                thisID < otherID -> return -1 // other : 후배
+                else -> return 0 // other : 동기
+            }
+        } catch (e : NumberFormatException) {
+            e.printStackTrace()
+            return -100
+        }
+    }
+}
