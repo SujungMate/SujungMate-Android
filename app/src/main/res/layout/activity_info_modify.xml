@@ -346,6 +346,12 @@
                 android:textColor="#000000"
                 android:textSize="18sp" />
 
+            <ImageView
+                android:id="@+id/profileImage_infoModify"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:srcCompat="@tools:sample/avatars" />
+
             <View
                 android:id="@+id/subline6_infoModify"
                 android:layout_width="match_parent"
@@ -391,6 +397,7 @@
                 android:layout_marginBottom="30dp"
                 android:gravity="center"
                 android:text="수정"
+                android:textColor="#F6F6F6"
                 android:textSize="18sp"
                 app:backgroundTint="#7075B6" />
 

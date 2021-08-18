@@ -40,7 +40,7 @@ class SignUpActivity3 : AppCompatActivity() {
         ab.setDisplayShowTitleEnabled(false)
         ab.setDisplayHomeAsUpEnabled(true)
 
-        // EditText 입력 중 외부 터치 시 키보드 내리기 (닉네임)
+        // EditText 입력 중 외부 터치 시 키보드 내리기
         val outer_layout = findViewById<ConstraintLayout>(R.id.layout_signup3) // 레이아웃 가져오기
         outer_layout.setOnClickListener {
             hideKeyboard()
@@ -51,14 +51,14 @@ class SignUpActivity3 : AppCompatActivity() {
             val intent = Intent(Intent.ACTION_PICK)
             intent.type = "image/*"
             startActivityForResult(intent,0)
-
         }
-
 
         next_button_signup3.setOnClickListener{
             val nickname = nickname_edittext_signup3.text.toString()
             val major = major_spinner_signup3.selectedItem.toString()
             uploadImagetoFirebaseStorage(nickname, major)
+            val intent = Intent(this, SignUpActivity4::class.java)
+            startActivity(intent)
         }
 
         // 채연이 코드
@@ -157,7 +157,6 @@ class SignUpActivity3 : AppCompatActivity() {
 
         }
     }
-
 
     // Firebase에 실제로 저장 (이미지, 닉네임, 주전공)
     private fun saveUserToFirebaseDatabase(profileImageUrl: String){

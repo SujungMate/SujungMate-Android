@@ -118,7 +118,6 @@ class SignUpActivity4 : AppCompatActivity() {
                 val intent = Intent(this, MyPageActivity::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(intent)
-
             }
     }
 
@@ -138,8 +137,10 @@ class SignUpActivity4 : AppCompatActivity() {
     //키보드 숨기기
     fun hideKeyboard() {
         val editText1 = findViewById<EditText>(R.id.lecture1_edittext_signup4)
+        val editText2 = findViewById<EditText>(R.id.statusmessage_edittext_signup4)
         val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(editText1.windowToken, 0)
+        imm.hideSoftInputFromWindow(editText2.windowToken, 0)
     }
 
     //스피너
