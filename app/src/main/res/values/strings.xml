@@ -60,5 +60,6 @@
     <string name="title_mateSearch">매칭 결과</string>
     <string name="text_goMateManage">매칭관리로 이동</string>
     <string name="text_error_noMatch">검색 결과가 없습니다.</string>
+    <string name="MAJORandSTUNUM">%1$s\n%2$s</string>
 
 </resources>
