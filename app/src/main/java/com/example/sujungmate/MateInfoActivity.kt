@@ -106,8 +106,8 @@ class MateInfoActivity : AppCompatActivity() {
                             position: Int,
                             id: Long
                         ) {
-                            Toast.makeText(applicationContext, "2번째 스피너 완료", Toast.LENGTH_SHORT)
-                                .show()
+//                            Toast.makeText(applicationContext, "2번째 스피너 완료", Toast.LENGTH_SHORT)
+//                                .show()
 
                         }
 
@@ -146,7 +146,7 @@ class MateInfoActivity : AppCompatActivity() {
 
             // 4. MBTI
             var MBTI : String = findViewById<Spinner>(R.id.MBTI_mateInfo).selectedItem.toString()
-            Log.d("선택 아이템 : ", MBTI)
+//            Log.d("선택 아이템 : ", MBTI)
 
             // 5. 관심사 (소분류 가져오기)
             var INTEREST : String? = subCategorySpinner.selectedItem.toString()
@@ -185,8 +185,8 @@ class MateInfoActivity : AppCompatActivity() {
                 position: Int,
                 id: Long
             ) {
-                if(position != 0)
-                    Toast.makeText(application, spinner.selectedItem.toString(), Toast.LENGTH_LONG).show()
+//                if(position != 0)
+//                    Toast.makeText(application, spinner.selectedItem.toString(), Toast.LENGTH_LONG).show()
 
             }
 
