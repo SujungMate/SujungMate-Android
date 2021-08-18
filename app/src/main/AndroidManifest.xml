@@ -66,6 +66,8 @@
             android:exported="true" />
         <activity android:name=".PWChangeActivity"
             android:exported="true" />
+        <activity android:name=".MateManageActivity"
+            android:exported="true" />
     </application>
 
 </manifest>
