@@ -39,15 +39,16 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginLeft="5sp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10sp"
                 android:layout_marginTop="15sp"
-                android:text="@string/action_service_argee"
-                android:layout_marginLeft="10sp"/>
+                android:text="@string/action_service_argee" />
 
             <Button
                 android:layout_width="match_parent"
@@ -72,6 +73,7 @@
                 android:gravity="start|center_vertical"
                 android:text="@string/action_service_argee_1"
                 android:textColor="#414141" />
+
             <View
                 android:layout_width="380dp"
                 android:layout_height="0.1dp"
@@ -84,9 +86,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#00ff0000"
+                android:gravity="start|center_vertical"
                 android:text="@string/action_service_argee_2"
-                android:textColor="#414141"
-                android:gravity="start|center_vertical"/>
+                android:textColor="#414141" />
+
             <View
                 android:layout_width="380dp"
                 android:layout_height="0.1dp"
@@ -99,9 +102,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#00ff0000"
+                android:gravity="start|center_vertical"
                 android:text="@string/action_service_argee_3"
-                android:textColor="#414141"
-                android:gravity="start|center_vertical"/>
+                android:textColor="#414141" />
+
             <View
                 android:layout_width="380dp"
                 android:layout_height="0.1dp"
@@ -114,9 +118,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#00ff0000"
+                android:gravity="start|center_vertical"
                 android:text="@string/action_service_argee_4"
-                android:textColor="#414141"
-                android:gravity="start|center_vertical"/>
+                android:textColor="#414141" />
+
             <View
                 android:layout_width="380dp"
                 android:layout_height="0.1dp"
@@ -129,9 +134,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#00ff0000"
+                android:gravity="start|center_vertical"
                 android:text="@string/action_service_argee_5"
-                android:textColor="#414141"
-                android:gravity="start|center_vertical"/>
+                android:textColor="#414141" />
+
             <View
                 android:layout_width="380dp"
                 android:layout_height="0.1dp"
@@ -144,9 +150,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#00ff0000"
+                android:gravity="start|center_vertical"
                 android:text="@string/action_service_argee_6"
-                android:textColor="#414141"
-                android:gravity="start|center_vertical"/>
+                android:textColor="#414141" />
+
             <View
                 android:layout_width="380dp"
                 android:layout_height="0.1dp"
@@ -159,9 +166,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#00ff0000"
+                android:gravity="start|center_vertical"
                 android:text="@string/action_service_argee_7"
-                android:textColor="#414141"
-                android:gravity="start|center_vertical"/>
+                android:textColor="#414141" />
+
             <View
                 android:layout_width="380dp"
                 android:layout_height="0.1dp"
@@ -171,8 +179,10 @@
                 tools:layout_editor_absoluteY="150dp" />
 
             <CheckBox
+                android:id="@+id/agree_button_signup"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_marginTop="20sp"
                 android:layout_gravity="center_horizontal"
                 android:text="회원가입 및 이용 약관에 동의하시겠습니까"
                 tools:ignore="TouchTargetSizeCheck" />
@@ -182,12 +192,12 @@
                 android:layout_width="84.6sp"
                 android:layout_height="61sp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="15sp"
+                android:layout_marginTop="30sp"
                 android:backgroundTint="#7075B6"
-                android:textStyle="bold"
-                android:textSize="20dp"
+                android:text="@string/action_next"
                 android:textColor="@color/white"
-                android:text="@string/action_next" />
+                android:textSize="20dp"
+                android:textStyle="bold" />
         </LinearLayout>
 
     </ScrollView>

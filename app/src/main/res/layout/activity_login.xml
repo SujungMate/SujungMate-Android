@@ -26,8 +26,8 @@
 
     <EditText
         android:id="@+id/password_edittext_login"
-        android:layout_width="230dp"
-        android:layout_height="29dp"
+        android:layout_width="260dp"
+        android:layout_height="35dp"
         android:background="#ffffff"
         android:hint="@string/prompt_password"
         android:imeActionLabel="@string/action_sign_in_short"
@@ -54,10 +54,10 @@
 
         app:layout_constraintBottom_toTopOf="@+id/login_button_login"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.763"
+        app:layout_constraintHorizontal_bias="0.867"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password_edittext_login"
-        app:layout_constraintVertical_bias="0.2"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="TouchTargetSizeCheck" />
 
     <Button
@@ -79,12 +79,13 @@
 
     <EditText
         android:id="@+id/schoolemail_edittext_login"
-        android:layout_width="230dp"
-        android:layout_height="29dp"
+        android:layout_width="260dp"
+        android:layout_height="35dp"
         android:layout_marginBottom="108dp"
         android:background="#ffffff"
         android:hint="@string/prompt_email"
         android:inputType="textEmailAddress"
+        android:maxLength="8"
         android:paddingLeft="8dp"
         android:selectAllOnFocus="true"
         app:layout_constraintBottom_toTopOf="@+id/login_button_login"
@@ -98,14 +99,15 @@
         android:id="@+id/domain_textview_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:text="@string/text_sungshinemail"
         android:textColor="@color/black"
-        android:textSize="10sp"
+        android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="@+id/schoolemail_edittext_login"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.744"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/schoolemail_edittext_login"
+        app:layout_constraintHorizontal_bias="0.939"
+        app:layout_constraintStart_toStartOf="@+id/schoolemail_edittext_login"
         app:layout_constraintTop_toTopOf="@+id/schoolemail_edittext_login"
-        app:layout_constraintVertical_bias="0.533" />
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

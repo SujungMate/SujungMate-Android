@@ -4,68 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ChatManageActivity"
-    android:background="#EDE8F2">
-    <ScrollView
+    android:background="#EDE8F2"
+
+    tools:context=".messages.ChatManageActivity">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_chat_manage"
+        android:layout_width="409dp"
+        android:layout_height="657dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <Button
-                    android:id="@+id/chat_button_chatmanage"
-                    android:layout_width="300dp"
-                    android:layout_height="120dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_margin="5dp"
-                    android:backgroundTint="#FAFAFA"
-                    android:drawableLeft="@drawable/drawable_left_image_customise"
-                    android:drawableRight="@drawable/drawble_right_image_customise"
-                    android:gravity="left"
-                    android:paddingTop="20dp"
-                    android:text="김수정"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    tools:ignore="SpeakableTextPresentCheck" />
-
-                <Button
-                    android:layout_width="300dp"
-                    android:layout_height="120dp"
-                    android:layout_margin="5dp"
-                    android:layout_gravity="center_horizontal"
-                    android:backgroundTint="#FAFAFA"
-                    android:drawableRight="@drawable/drawble_right_image_customise"
-                    android:drawableLeft="@drawable/drawable_left_image_customise"
-                    android:text="김수정"
-                    android:textSize="20dp"
-                    android:textColor="@color/black"
-                    android:gravity="left"
-                    android:paddingTop="20dp"
-                    tools:ignore="SpeakableTextPresentCheck"/>
-                <Button
-                    android:layout_width="300dp"
-                    android:layout_height="120dp"
-                    android:layout_margin="5dp"
-                    android:layout_gravity="center_horizontal"
-                    android:backgroundTint="#FAFAFA"
-                    android:drawableRight="@drawable/drawble_right_image_customise"
-                    android:drawableLeft="@drawable/drawable_left_image_customise"
-                    android:text="김수정"
-                    android:textSize="20dp"
-                    android:textColor="@color/black"
-                    android:gravity="left"
-                    android:paddingTop="20dp"
-                    tools:ignore="SpeakableTextPresentCheck"/>
-
-            </LinearLayout>
-
-        </LinearLayout>
-    </ScrollView>
-
+        android:layout_height="wrap_content"
+        app:menu="@menu/nav_menu"
+        android:background="#F6F6F6"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

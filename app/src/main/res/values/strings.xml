@@ -1,13 +1,14 @@
 <resources>
     <string name="app_name">SujungMate</string>
     <string name="title_activity_login">LoginActivity</string>
-    <string name="prompt_email">학번 입력</string>
+    <string name="prompt_email">학번(아이디) 입력</string>
     <string name="prompt_password">비밀번호 입력</string>
     <string name="prompt_passwordconfirm">비밀번호 재입력</string>
     <string name="prompt_confirmnum">인증번호 입력</string>
-    <string name="prompt_name">중복 닉네임 사용 불가</string>
+    <string name="prompt_name">닉네임 입력</string>
     <string name="prompt_lecture">수강과목 입력</string>
     <string name="prompt_message">상태메세지 입력</string>
+    <string name="prompt_signup_email_confirm">회원가입을 위한 성신 이메일 인증을 진행합니다.\n이메일 확인 후, 다음 버튼을 눌러주세요.</string>
     <string name="action_sign_in">로그인</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="action_sign_up">회원가입</string>
@@ -28,14 +29,16 @@
     <string name="action_service_argee_6">6. 개인정보 자동수집 장치의 설치운영 및 거부에 관한 사항</string>
     <string name="action_service_argee_7">7. 개인정보 보호책임자 또는 담당자의 이름 및 연락처</string>
     <string name="action_next">다음</string>
-    <string name="text_comfirmnumber">인증번호 발송</string>
-    <string name="text_sungshinemail">\u0040sungshin.ac.kr</string>
-    <string name="text_email">학교 계정 이메일 인증</string>
+    <string name="action_info_save">시작하기</string>
+    <string name="text_emailconfirm">인증메일 발송</string>
+    <string name="text_sungshinemail">\@sungshin.ac.kr</string>
+    <string name="text_email">학교 이메일 인증</string>
     <string name="text_emailDetail">이메일로 발송된 인증번호를 입력해주세요.</string>
     <string name="text_signupwarning">※ 잘못된 정보 입력으로 발생하는 모든 일은\n사용자에게 책임이 있음을 알립니다.</string>
     <string name="text_star">*</string>
     <string name="text_signup">회원가입</string>
     <string name="title_activity_test">testActivity</string>
+    <string name="text_signupmessage">수정이 여러분 반갑습니다!\n가입을 통해 짝수정을 만나보세요.</string>
 
     <string name="title_MateType">매칭 유형 선택</string>
     <string name="type1_randomMatch">랜덤 매칭</string>
