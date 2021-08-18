@@ -37,6 +37,7 @@ class ChatActivity : AppCompatActivity() {
 
         supportActionBar?.title = "Chat Log"
 
+
         // NewMessagesActivity에서 가져왔던 유저키로 유저네임 가져오기
         //val username = intent.getStringExtra(NewMessagesActivity.USER_KEY)
         // Parcelable 이용
@@ -44,6 +45,15 @@ class ChatActivity : AppCompatActivity() {
 
         // username으로 액션바 타이틀 변경하기
         supportActionBar?.title = toUser?.nickname
+
+        // 채팅창 tool바 이름, 전공
+        toolbar_chat_name.setText(toUser?.nickname)
+        toolbar_chat_major.setText(toUser?.major)
+        // 뒤로가기
+        setSupportActionBar(toolbar_chat)
+        val ab = supportActionBar!!
+        ab.setDisplayShowTitleEnabled(false)
+        ab.setDisplayHomeAsUpEnabled(true)
 
         // 채팅 돌기 테스트 (xml 상에서 넣은 text 확인)
         //setUpDummyData()
