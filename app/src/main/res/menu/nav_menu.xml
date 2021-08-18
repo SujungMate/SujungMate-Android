@@ -6,12 +6,6 @@
         android:title="New Message"
         android:icon="@drawable/heart"
         />
-
-    <item android:id="@+id/menu_my_page"
-        android:title="My Page"
-        android:icon="@drawable/eye"
-        />
-
     <item android:id="@+id/menu_sign_out"
         android:title="Sign Out"
         android:icon="@drawable/eye"

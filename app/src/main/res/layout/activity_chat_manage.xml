@@ -37,13 +37,42 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar_chatmanage" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
+    <LinearLayout
+        android:id="@+id/navigation_chatmanage"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/bottom_navbar"
-        app:menu="@menu/nav_menu"
-        android:background="#F6F6F6"
+        android:layout_height="64dp"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        />
+        tools:layout_editor_absoluteX="-40dp">
+
+        <Button
+            android:id="@+id/myPageBtn_chatmanage"
+            android:layout_width="138dp"
+            android:layout_height="64dp"
+            android:layout_weight="1"
+            android:background="#F6F6F6"
+            android:text="마이페이지"
+            android:textColor="#ADADAD"
+            tools:ignore="TextContrastCheck" />
+
+        <Button
+            android:id="@+id/chatRoomBtn_chatmanage"
+            android:layout_width="138dp"
+            android:layout_height="64dp"
+            android:layout_weight="1"
+            android:background="#CEBAE1"
+            android:text="채팅방"
+            android:textColor="#FFFFFF"
+            tools:ignore="TextContrastCheck" />
+
+        <Button
+            android:id="@+id/mateBtn_chatmanage"
+            android:layout_width="138dp"
+            android:layout_height="64dp"
+            android:layout_weight="1"
+            android:background="#F6F6F6"
+            android:text="매칭"
+            android:textColor="#ADADAD"
+            tools:ignore="TextContrastCheck" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

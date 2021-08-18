@@ -8,199 +8,98 @@
     android:background="#EDE8F2"
     tools:context=".MyPageActivity">
 
-    <ImageView
-        android:id="@+id/profileImage_myPage"
-        android:layout_width="0dp"
-        android:layout_height="115dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="29dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginRight="4dp"
-        android:layout_marginBottom="77dp"
-        app:layout_constraintBottom_toTopOf="@+id/line_myPage"
-        app:layout_constraintEnd_toStartOf="@+id/statusMessage_myPage"
-        app:layout_constraintStart_toStartOf="parent"
+    <Button
+        android:id="@+id/modifyBtn_myPage"
+        android:layout_width="53dp"
+        android:layout_height="48dp"
+        android:text="수정"
+        app:layout_constraintBottom_toBottomOf="@+id/profileImage_myPage"
+        app:layout_constraintEnd_toStartOf="@+id/nickname_myPage"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/profileImage_myPage"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/graycircle" />
+        app:layout_constraintVertical_bias="0.31" />
 
     <TextView
         android:id="@+id/nickname_myPage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="162dp"
-        android:layout_marginRight="162dp"
+        android:layout_marginTop="64dp"
         android:text="닉네임"
         android:textColor="#222222"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@id/studentID_myPage"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/modifyBtn_myPage"
-        app:layout_constraintTop_toTopOf="@+id/studentID_myPage" />
+        app:layout_constraintHorizontal_bias="0.127"
+        app:layout_constraintStart_toEndOf="@+id/profileImage_myPage"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/statusMessage_myPage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="9dp"
         android:text="나의 상태메시지"
         android:textColor="#757575"
-        app:layout_constraintEnd_toStartOf="@+id/major_myPage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.135"
         app:layout_constraintStart_toEndOf="@+id/profileImage_myPage"
-        app:layout_constraintTop_toBottomOf="@+id/major_myPage" />
-
-    <TextView
-        android:id="@+id/studentID_myPage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="17dp"
-        android:text="21학번"
-        android:textColor="#582F81"
-        android:textSize="13dp"
-        app:layout_constraintStart_toStartOf="@+id/major_myPage"
-        app:layout_constraintTop_toTopOf="@+id/major_myPage" />
+        app:layout_constraintTop_toBottomOf="@+id/nickname_myPage" />
 
     <TextView
         android:id="@+id/major_myPage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="80dp"
-        android:layout_marginRight="80dp"
-        android:layout_marginBottom="25dp"
+        android:layout_marginTop="68dp"
         android:text="컴퓨터공학과"
         android:textColor="#582F81"
         android:textSize="13dp"
-        app:layout_constraintBottom_toTopOf="@+id/statusMessage_myPage"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/statusMessage_myPage"
-        app:layout_constraintTop_toBottomOf="@+id/modifyBtn_myPage" />
+        app:layout_constraintHorizontal_bias="0.247"
+        app:layout_constraintStart_toEndOf="@+id/nickname_myPage"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/modifyBtn_myPage"
-        android:layout_width="35dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="127dp"
-        android:layout_marginLeft="127dp"
-        android:layout_marginTop="29dp"
-        app:backgroundTint="#ADADAD"
-        app:layout_constraintBottom_toTopOf="@+id/major_myPage"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+    <TextView
+        android:id="@+id/studentID_myPage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="21학번"
+        android:textColor="#582F81"
+        android:textSize="13dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/major_myPage"
+        app:layout_constraintTop_toBottomOf="@+id/major_myPage" />
 
     <TextView
         android:id="@+id/sujungMate_myPage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:layout_marginLeft="6dp"
-        android:layout_marginBottom="425dp"
+        android:layout_marginTop="36dp"
         android:text="짝수정"
         android:textColor="#656565"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/line_myPage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.11"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profileImage_myPage" />
 
     <View
         android:id="@+id/line_myPage"
-        android:layout_width="0dp"
+        android:layout_width="331dp"
         android:layout_height="0.1dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginBottom="455dp"
+        android:layout_marginTop="2dp"
         android:background="#656565"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/sujungMate_myPage" />
-
-    <LinearLayout
-        android:id="@+id/sujungMateLayout_myPage"
-        android:layout_width="330dp"
-        android:layout_height="290dp"
-        android:layout_marginTop="212dp"
-        android:layout_marginBottom="96dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/navigation_myPage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <LinearLayout
-            android:id="@+id/sujungMateLayout2_myPage"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/sujungMateNickName_myPage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="닉네임1"
-                android:textColor="#000000"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/sujungMateInfo_myPage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center|right"
-                android:text="컴퓨터공학과 00학번"
-                android:textColor="#582F81"
-                android:textSize="13sp" />
-        </LinearLayout>
-
-        <View
-            android:id="@+id/subLine_myPage"
-            android:layout_width="match_parent"
-            android:layout_height="0.1dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:background="#ADADAD" />
-
-        <LinearLayout
-            android:id="@+id/sujungMateLayout3_myPage"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/sujungMateNickName2_myPage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="닉네임2"
-                android:textColor="#000000"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/sujungMateInfo2_myPage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="right"
-                android:text="정보시스템공학과 00학번"
-                android:textColor="#582F81"
-                android:textSize="13sp" />
-        </LinearLayout>
-
-    </LinearLayout>
+        app:layout_constraintTop_toBottomOf="@+id/sujungMate_myPage" />
 
     <LinearLayout
         android:id="@+id/navigation_myPage"
         android:layout_width="match_parent"
         android:layout_height="64dp"
-        android:layout_marginTop="458dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profileImage_myPage"
         tools:layout_editor_absoluteX="-40dp">
 
         <Button
@@ -233,5 +132,24 @@
             android:textColor="#ADADAD"
             tools:ignore="TextContrastCheck" />
     </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="wrap_content"
+        android:layout_height="390dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/line_myPage" />
+
+    <ImageView
+        android:id="@+id/profileImage_myPage"
+        android:background="@color/light_gray"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.128"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

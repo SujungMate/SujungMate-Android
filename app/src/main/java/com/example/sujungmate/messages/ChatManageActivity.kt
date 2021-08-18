@@ -6,11 +6,10 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.DividerItemDecoration
-import com.example.sujungmate.LoginActivity
-import com.example.sujungmate.MyPageActivity
+import com.example.sujungmate.*
 import com.example.sujungmate.R
-import com.example.sujungmate.SignUpActivity4
 import com.example.sujungmate.tables.ChatMessage
 import com.example.sujungmate.tables.Users
 import com.google.firebase.auth.FirebaseAuth
@@ -34,6 +33,14 @@ class ChatManageActivity : AppCompatActivity() {
         // 레이아웃 꾸미는 걸로 변경함
         recyclerview_chat_manage.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
 
+        val toolbar = findViewById<Toolbar>(R.id.toolbar_chatmanage)
+        setSupportActionBar(toolbar)
+        val ab = supportActionBar!!
+        ab.setDisplayShowTitleEnabled(false)
+        //ab.setDisplayHomeAsUpEnabled(true)
+
+
+        /*
         // 바텀네비바 옵션
         bottom_navbar.setOnNavigationItemReselectedListener { item ->
             when (item?.itemId) {
@@ -55,6 +62,21 @@ class ChatManageActivity : AppCompatActivity() {
                     startActivity(intent)
                 }
             }
+        }*/
+
+        // 바텀 버튼
+        myPageBtn_chatmanage.setOnClickListener{
+            val intent = Intent(this, MyPageActivity::class.java)
+            startActivity(intent)
+        }
+        /*
+        chatRoomBtn_chatmanage.setOnClickListener{
+            val intent = Intent(this, ChatManageActivity::class.java)
+            startActivity(intent)
+        }*/
+        mateBtn_chatmanage.setOnClickListener{
+            val intent = Intent(this, MateManageActivity::class.java)
+            startActivity(intent)
         }
 
 
@@ -160,7 +182,6 @@ class ChatManageActivity : AppCompatActivity() {
     }
 
     // 액션바일때의 옵션
-    /*
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item?.itemId) {
             // 새메세지
@@ -176,10 +197,6 @@ class ChatManageActivity : AppCompatActivity() {
                 intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(intent)
             }
-            R.id.menu_my_page -> {
-                val intent = Intent(this, MyPageActivity::class.java)
-                startActivity(intent)
-            }
         }
         return super.onOptionsItemSelected(item)
     }
@@ -189,5 +206,5 @@ class ChatManageActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.nav_menu,menu)
         return super.onCreateOptionsMenu(menu)
     }
-     */
+
 }
