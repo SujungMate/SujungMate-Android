@@ -30,155 +30,62 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/text1_pwchange"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="73dp"
-        android:text="기존 비밀번호"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/oldPW_pwchange"
-        app:layout_constraintEnd_toStartOf="@+id/modify_pwchange"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/line_pwchange"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <View
-        android:id="@+id/line_pwchange"
-        android:layout_width="0dp"
-        android:layout_height="0.1dp"
-        android:layout_marginStart="55dp"
-        android:layout_marginLeft="55dp"
-        android:layout_marginTop="153dp"
-        android:layout_marginEnd="55dp"
-        android:layout_marginRight="55dp"
-        android:layout_marginBottom="272dp"
-        android:background="#ADADAD"
-        app:layout_constraintBottom_toTopOf="@+id/modify_pwchange"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <EditText
-        android:id="@+id/oldPW_pwchange"
+        android:id="@+id/email_pwchange"
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_marginStart="58dp"
         android:layout_marginLeft="58dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="58dp"
         android:layout_marginRight="58dp"
         android:background="#F6F6F6"
         android:ems="10"
-        android:hint="@string/prompt_oldPW"
+        android:hint="@string/prompt_totalEmail"
         android:inputType="textPersonName"
         android:textColor="#ADADAD"
         android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/line_pwchange"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text1_pwchange"
         tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
+
+    <TextView
+        android:id="@+id/text1_pwchange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="이메일 입력"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/email_pwchange"
+        app:layout_constraintStart_toStartOf="@+id/email_pwchange"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/modify_pwchange"
         android:layout_width="75dp"
         android:layout_height="0dp"
-        android:layout_marginStart="158dp"
-        android:layout_marginLeft="158dp"
-        android:layout_marginBottom="179dp"
-        android:text="변경"
+        android:layout_marginStart="168dp"
+        android:layout_marginLeft="168dp"
+        android:layout_marginBottom="424dp"
+        android:text="전송"
+        android:textColor="#F6F6F6"
         android:textSize="18sp"
         app:backgroundTint="#7075B6"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/line_pwchange" />
-
-    <EditText
-        android:id="@+id/newPW_pwchange"
-        android:layout_width="0dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="58dp"
-        android:layout_marginLeft="58dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="58dp"
-        android:layout_marginRight="58dp"
-        android:layout_marginBottom="10dp"
-        android:background="#F6F6F6"
-        android:ems="10"
-        android:hint="@string/prompt_newPW"
-        android:inputType="textPersonName"
-        android:textColor="#ADADAD"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/line2_pwchange"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text2_pwchange"
-        tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
-
-    <View
-        android:id="@+id/line2_pwchange"
-        android:layout_width="0dp"
-        android:layout_height="0.1dp"
-        android:layout_marginStart="55dp"
-        android:layout_marginLeft="55dp"
-        android:layout_marginEnd="55dp"
-        android:layout_marginRight="55dp"
-        android:layout_marginBottom="9dp"
-        android:background="#ADADAD"
-        app:layout_constraintBottom_toTopOf="@+id/text3_pwchange"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/newPW_pwchange" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/text3_pwchange"
+        android:id="@+id/notice_pwchange"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="7dp"
-        android:text="새 비밀번호 확인"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/newPW2_pwchange"
-        app:layout_constraintStart_toStartOf="@+id/line2_pwchange"
-        app:layout_constraintTop_toBottomOf="@+id/line2_pwchange" />
-
-    <EditText
-        android:id="@+id/newPW2_pwchange"
-        android:layout_width="0dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="58dp"
-        android:layout_marginLeft="58dp"
-        android:layout_marginEnd="58dp"
-        android:layout_marginRight="58dp"
-        android:layout_marginBottom="357dp"
-        android:background="#F6F6F6"
-        android:ems="10"
-        android:hint="@string/prompt_PWConfirm"
-        android:inputType="textPersonName"
-        android:textColor="#ADADAD"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="11dp"
+        android:gravity="center"
+        android:text="비밀번호 변경 메일을 보내려면 전송 버튼을 누르십시오."
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text3_pwchange"
-        tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
-
-    <TextView
-        android:id="@+id/text2_pwchange"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="새 비밀번호"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@id/line2_pwchange"
-        app:layout_constraintStart_toStartOf="@+id/line_pwchange"
-        app:layout_constraintTop_toBottomOf="@+id/line_pwchange"
-        app:layout_constraintVertical_bias="0.173" />
+        app:layout_constraintTop_toBottomOf="@+id/modify_pwchange" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
