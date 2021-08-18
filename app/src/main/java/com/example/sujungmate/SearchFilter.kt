@@ -11,5 +11,5 @@ data class SearchFilter (
     var searchMajor : String?,
     var searchLecture : String?,
     var searchMbti : String?,
-    var searchInterest : String?
+    var searchInterest : String?,   // 관심사(소분류)
 ): Parcelable
