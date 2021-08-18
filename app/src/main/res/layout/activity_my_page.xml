@@ -13,10 +13,10 @@
         android:layout_width="53dp"
         android:layout_height="48dp"
         android:text="수정"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintBottom_toBottomOf="@+id/profileImage_myPage"
         app:layout_constraintEnd_toStartOf="@+id/nickname_myPage"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/profileImage_myPage"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.31" />
 
@@ -28,20 +28,22 @@
         android:text="닉네임"
         android:textColor="#222222"
         android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.127"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/profileImage_myPage"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/statusMessage_myPage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
         android:text="나의 상태메시지"
         android:textColor="#757575"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.135"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/profileImage_myPage"
         app:layout_constraintTop_toBottomOf="@+id/nickname_myPage" />
 
     <TextView
@@ -65,8 +67,8 @@
         android:textColor="#582F81"
         android:textSize="13dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.182"
-        app:layout_constraintStart_toEndOf="@+id/nickname_myPage"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/major_myPage"
         app:layout_constraintTop_toBottomOf="@+id/major_myPage" />
 
     <TextView
@@ -80,7 +82,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.11"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/profileImage_myPage" />
 
     <View
         android:id="@+id/line_myPage"
@@ -139,7 +141,7 @@
         app:layout_constraintTop_toTopOf="@+id/line_myPage" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/profileImage_myPage"
         android:background="@color/light_gray"
         android:layout_width="100dp"
         android:layout_height="100dp"
