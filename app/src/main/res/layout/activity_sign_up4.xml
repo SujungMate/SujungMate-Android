@@ -8,6 +8,27 @@
     android:background="#E3E3F0"
     tools:context=".SignUpActivity4">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_signup"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#F6F6F6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/text_signup"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="145dp"
+            tools:layout_editor_absoluteY="14dp" />
+
+    </androidx.appcompat.widget.Toolbar>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -18,18 +39,35 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginTop="55dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="16dp"
+                android:layout_marginBottom="10dp"
                 android:gravity="center"
                 android:text="@string/text_signupwarning"
                 android:textColor="@color/red"
                 tools:layout_editor_absoluteX="78dp"
                 tools:layout_editor_absoluteY="16dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="선택 정보"
+                    android:textColor="@color/black"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="40dp"
+                    />
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -40,7 +78,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="53dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="15dp"
                     android:text="수강과목"
                     android:textColor="@color/black"
                     android:textSize="17dp"
@@ -55,7 +93,7 @@
                     android:orientation="vertical">
 
                     <EditText
-                        android:id="@+id/lecture1_spinner_signup4"
+                        android:id="@+id/lecture1_edittext_signup4"
                         android:layout_width="232dp"
                         android:layout_height="30dp"
                         android:background="#ffffff"
@@ -167,21 +205,7 @@
                 android:layout_gravity="center"
                 android:background="#ADADAD" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="78dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="53dp"
-                    android:layout_marginTop="15dp"
-                    android:text="프로필 사진"
-                    android:textColor="@color/black"
-                    android:textSize="17dp"
-                    tools:layout_editor_absoluteX="54dp"
-                    tools:layout_editor_absoluteY="82dp" />
-            </LinearLayout>
 
             <View
                 android:layout_width="322dp"
@@ -211,6 +235,7 @@
                     android:layout_height="30dp"
                     android:layout_marginLeft="53dp"
                     android:layout_marginTop="5dp"
+                    android:layout_marginBottom="20dp"
                     android:background="#ffffff"
                     android:hint="@string/prompt_message"
                     android:inputType="text"
@@ -229,7 +254,7 @@
                 android:layout_marginTop="25dp"
                 android:layout_marginBottom="20dp"
                 android:backgroundTint="#7075B6"
-                android:text="@string/action_sign_up"
+                android:text="@string/action_info_save"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="bold" />

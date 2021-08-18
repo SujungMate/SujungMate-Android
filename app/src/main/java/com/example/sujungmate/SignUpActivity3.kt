@@ -1,17 +1,32 @@
 package com.example.sujungmate
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.graphics.drawable.BitmapDrawable
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.MediaStore
 import android.util.Log
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.sujungmate.R
 import com.example.sujungmate.tables.SubDistinction
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.auth.User
+import com.example.sujungmate.tables.Users
+import com.google.firebase.storage.FirebaseStorage
+import kotlinx.android.synthetic.main.activity_sign_up2.*
+import kotlinx.android.synthetic.main.activity_sign_up3.*
+import java.util.*
 
 class SignUpActivity3 : AppCompatActivity() {
+
+    val user = FirebaseAuth.getInstance().currentUser
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up3)
@@ -22,9 +37,26 @@ class SignUpActivity3 : AppCompatActivity() {
             hideKeyboard()
         }
 
+        // 프로필 사진
+        selectphoto_button_signup3.setOnClickListener{
+            val intent = Intent(Intent.ACTION_PICK)
+            intent.type = "image/*"
+            startActivityForResult(intent,0)
+
+        }
+
+
+        next_button_signup3.setOnClickListener{
+            val nickname = nickname_edittext_signup3.text.toString()
+            val major = major_spinner_signup3.selectedItem.toString()
+            uploadImagetoFirebaseStorage(nickname, major)
+        }
+
+        // 채연이 코드
         // 주전공에 대한 spinner 세팅
         SpinnerSettings(findViewById(R.id.major_spinner_signup3), R.array.interesting_major)
 
+        /*
         val nextBtn = findViewById<Button>(R.id.next_button_signup3)
         nextBtn.setOnClickListener {
 
@@ -65,4 +97,99 @@ class SignUpActivity3 : AppCompatActivity() {
             spinner.adapter = adapter
         }
     }
+     */
+    }
+
+    var selectedPhotoUri: Uri? = null
+
+    // profile photo 반영
+    // 추가수정: image 동그랗게 가져오는건 코틀린 메니저 영상 3번째 31분부터 보기
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if(requestCode == 0 && resultCode == Activity.RESULT_OK && data != null){
+            // proceed and check what the selected image was....
+            Log.d("RegisterActivity","Photo was selected")
+
+            selectedPhotoUri = data.data
+            val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, selectedPhotoUri)
+            val bitmapDrawable = BitmapDrawable(bitmap)
+            // val selectphoto_button_register = findViewById<Button>(R.id.selectphoto_button_register)
+
+            selectphoto_button_signup3.setBackgroundDrawable(bitmapDrawable)
+        }
+    }
+
+    private fun uploadImagetoFirebaseStorage(nickname:String, major:String) {
+        if (selectedPhotoUri == null) return
+
+        val filename = UUID.randomUUID().toString()
+        val ref = FirebaseStorage.getInstance().getReference("/images/$filename")
+
+        ref.putFile(selectedPhotoUri!!).addOnSuccessListener {
+            Log.d("SignUpActivity3","Successfully uploaded image: ${it.metadata?.path}")
+
+            ref.downloadUrl.addOnSuccessListener {
+                Log.d("SignUpActivity3","File Location: $it")
+
+                val stuNum = intent.getStringExtra("stuNum")
+
+                // saveUserToFirebaseDatabase(it.toString())
+                val intent = Intent(this, SignUpActivity4::class.java)
+                intent.putExtra("selectedPhotoUri", it.toString())
+                intent.putExtra("major",major)
+                intent.putExtra("nickname",nickname)
+                intent.putExtra("stuNum",stuNum)
+
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(intent)
+            }
+        }.addOnFailureListener{
+
+        }
+    }
+
+
+    // Firebase에 실제로 저장 (이미지, 닉네임, 주전공)
+    private fun saveUserToFirebaseDatabase(profileImageUrl: String){
+        val uid = FirebaseAuth.getInstance().currentUser!!.uid ?: "" // default 체크
+        val ref = FirebaseDatabase.getInstance().getReference("users/$uid")
+        var major = major_spinner_signup3.selectedItem.toString()
+
+        val user = Users(uid, schoolemail_edittext_signup2.text.toString(), nickname_edittext_signup3.text.toString(),
+            major,"","","", "", profileImageUrl)
+        ref.setValue(user)
+            .addOnSuccessListener {
+                Log.d("SignUpActivity3","we saved the user's image,name,major to Firebase Database")
+
+                /*
+                val intent = Intent(this, SignUpActivity4::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(intent)
+                 */
+            }
+    }
+
+
+    //키보드 숨기기
+    fun hideKeyboard() {
+        val editText1 = findViewById<EditText>(R.id.nickname_edittext_signup3)
+        val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(editText1.windowToken, 0)
+    }
+
+    //스피너
+    private fun SpinnerSettings(spinner : Spinner, arrayId : Int) {
+        ArrayAdapter.createFromResource(
+            this,
+            arrayId,
+            android.R.layout.simple_spinner_item
+        ).also { adapter ->
+            // Specify the layout to use when the list of choices appears
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            // Apply the adapter to the spinner
+            spinner.adapter = adapter
+        }
+    }
 }
+

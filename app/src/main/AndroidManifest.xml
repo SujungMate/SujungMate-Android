@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SujungMate">
         <activity
+            android:name=".messages.NewMessagesActivity"
+            android:exported="true" />
+        <activity
+            android:name=".SignUpActivity2_1"
+            android:exported="true" />
+        <activity
             android:name=".LoginActivity"
             android:exported="true"
             android:usesCleartextTraffic="true">
@@ -34,10 +40,14 @@
             android:resource="@drawable/drawble_right_image_customise" />
 
         <activity
-            android:name=".ChatActivity"
-            android:exported="true" />
+            android:name=".messages.ChatActivity"
+            android:exported="true">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".messages.ChatManageActivity" />
+        </activity>
         <activity
-            android:name=".ChatManageActivity"
+            android:name=".messages.ChatManageActivity"
             android:exported="true" />
         <activity
             android:name=".SignUpActivity4"
