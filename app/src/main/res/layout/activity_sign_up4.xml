@@ -9,7 +9,7 @@
     tools:context=".SignUpActivity4">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar_signup"
+        android:id="@+id/toolbar_signup4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="#F6F6F6"

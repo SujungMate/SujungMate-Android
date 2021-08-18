@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="interesting_major">
-        <item>관심 학과 선택</item>
+        <item>학과 선택</item>
         <item>국어국문학과</item>
         <item>영어영문학과</item>
         <item>독일어문·문화학과</item>

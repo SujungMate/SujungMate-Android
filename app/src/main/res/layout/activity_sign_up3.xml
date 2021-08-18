@@ -150,11 +150,11 @@
         android:text="@string/text_signupwarning"
         android:textColor="@color/red"
         app:layout_constraintStart_toStartOf="@+id/myinfo_textview_signup3"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_signup" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_signup3" />
 
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar_signup"
+        android:id="@+id/toolbar_signup3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="#F6F6F6"

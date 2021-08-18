@@ -9,7 +9,7 @@
     tools:context=".InfoModifyActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar_pwchange"
+        android:id="@+id/toolbar_infoModify"
         android:layout_width="411dp"
         android:layout_height="wrap_content"
         android:background="#F6F6F6"
@@ -111,8 +111,8 @@
                 android:layout_marginBottom="5dp"
                 android:background="#F6F6F6"
                 android:ems="10"
+                android:hint="@string/prompt_name"
                 android:inputType="textPersonName"
-                android:text="    닉네임 입력"
                 android:textColor="#ADADAD"
                 android:textSize="15sp"
                 tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
@@ -156,6 +156,7 @@
                     android:layout_marginRight="8dp"
                     android:layout_weight="1"
                     android:background="#F6F6F6"
+                    android:entries="@array/interesting_major"
                     tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
             </LinearLayout>
 
@@ -198,8 +199,8 @@
                     android:layout_weight="1"
                     android:background="#F6F6F6"
                     android:ems="10"
+                    android:hint="@string/prompt_lecture"
                     android:inputType="textPersonName"
-                    android:text="   수강과목 입력"
                     android:textColor="#ADADAD"
                     android:textSize="15sp"
                     tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
@@ -288,6 +289,7 @@
                     android:layout_marginRight="8dp"
                     android:layout_weight="1"
                     android:background="#F6F6F6"
+                    android:entries="@array/large_category"
                     tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
             </LinearLayout>
 
@@ -374,8 +376,8 @@
                 android:layout_marginBottom="5dp"
                 android:background="#F6F6F6"
                 android:ems="10"
+                android:hint="@string/prompt_message"
                 android:inputType="textPersonName"
-                android:text="    상태메시지 입력"
                 android:textColor="#ADADAD"
                 android:textSize="15sp"
                 tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
