@@ -55,5 +55,6 @@
     <string name="text_goMatch">매칭하기</string>
     <string name="title_mateSearch">매칭 결과</string>
     <string name="text_goMateManage">매칭관리로 이동</string>
+    <string name="text_error_noMatch">검색 결과가 없습니다.</string>
 
 </resources>
