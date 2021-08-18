@@ -4,24 +4,36 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
 import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_sign_up2.*
 import kotlinx.android.synthetic.main.activity_sign_up2_1.*
 
 // 성신 이메일 유효성 인증
 class SignUpActivity2_1 : AppCompatActivity() {
-    /*
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up2_1)
 
+        // 뒤로가기 버튼
+        val toolbar = findViewById<Toolbar>(R.id.toolbar_signup2_1)
+        setSupportActionBar(toolbar)
+        val ab = supportActionBar!!
+        ab.setDisplayShowTitleEnabled(false)
+        ab.setDisplayHomeAsUpEnabled(true)
+
+        /*
         next_button_signup2_1.setOnClickListener{
 
             sendEmailCheck()
         }
+
+         */
     }
 
+    /*
     private fun sendEmailCheck() {
         val usertask = FirebaseAuth.getInstance().currentUser!!.reload()
 
@@ -51,4 +63,17 @@ class SignUpActivity2_1 : AppCompatActivity() {
 
     }
      */
+
+    // 이전 화면으로 되돌리기 구현
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            android.R.id.home -> {
+                finish()
+                return true
+            }
+            else -> {
+                return super.onOptionsItemSelected(item)
+            }
+        }
+    }
 }

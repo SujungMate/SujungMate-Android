@@ -29,6 +29,13 @@ class MyPageActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_page)
 
+        // 내 정보 수정 버튼 레이어 순서 올리기
+        modifyBtn_myPage.bringToFront()
+        modifyBtn_myPage.setOnClickListener {
+            val intent = Intent(this, InfoModifyActivity::class.java)
+            startActivity(intent)
+        }
+
         // 바텀 버튼
         /*
         myPageBtn_myPage.setOnClickListener{

@@ -9,9 +9,11 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import android.view.MenuItem
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 import androidx.constraintlayout.widget.ConstraintLayout
 import kotlinx.android.synthetic.main.activity_sign_up2.*
 import com.google.firebase.auth.ActionCodeSettings
@@ -24,6 +26,13 @@ class SignUpActivity2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up2)
+
+        // 뒤로가기 버튼
+        val toolbar = findViewById<Toolbar>(R.id.toolbar_signup2)
+        setSupportActionBar(toolbar)
+        val ab = supportActionBar!!
+        ab.setDisplayShowTitleEnabled(false)
+        ab.setDisplayHomeAsUpEnabled(true)
 
         // EditText 입력 중 외부 터치 시 키보드 내리기
         val outer_layout = findViewById<ConstraintLayout>(R.id.layout_signup2) // 레이아웃 가져오기
@@ -111,6 +120,20 @@ class SignUpActivity2 : AppCompatActivity() {
                 Toast.makeText(this, "Failed to create user: ${it.message}", Toast.LENGTH_SHORT).show()
             }
     }
+
+    // 이전 화면으로 되돌리기 구현
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            android.R.id.home -> {
+                finish()
+                return true
+            }
+            else -> {
+                return super.onOptionsItemSelected(item)
+            }
+        }
+    }
+
     //키보드 숨기기
     fun hideKeyboard() {
         val editText1 = findViewById<EditText>(R.id.schoolemail_edittext_signup2)

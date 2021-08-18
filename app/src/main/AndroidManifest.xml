@@ -61,6 +61,9 @@
         <activity android:name=".SignUpActivity" />
         <activity android:name=".MyPageActivity"
             android:exported="true"/>
+        <activity
+            android:name=".InfoModifyActivity"
+            android:exported="true" />
         <activity android:name=".PWChangeActivity"
             android:exported="true" />
     </application>

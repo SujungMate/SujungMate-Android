@@ -62,4 +62,7 @@
     <string name="text_error_noMatch">검색 결과가 없습니다.</string>
     <string name="MAJORandSTUNUM">%1$s\n%2$s</string>
 
+    <string name="prompt_oldPW">기존 비밀번호 입력</string>
+    <string name="prompt_newPW">새 비밀번호 입력</string>
+    <string name="prompt_PWConfirm">새 비밀번호 재입력</string>
 </resources>

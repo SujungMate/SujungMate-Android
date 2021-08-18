@@ -9,8 +9,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
+import android.view.MenuItem
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
+import androidx.appcompat.widget.Toolbar
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.sujungmate.R
 import com.example.sujungmate.tables.SubDistinction
@@ -30,6 +32,13 @@ class SignUpActivity3 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up3)
+
+        // 뒤로가기 버튼
+        val toolbar = findViewById<Toolbar>(R.id.toolbar_signup3)
+        setSupportActionBar(toolbar)
+        val ab = supportActionBar!!
+        ab.setDisplayShowTitleEnabled(false)
+        ab.setDisplayHomeAsUpEnabled(true)
 
         // EditText 입력 중 외부 터치 시 키보드 내리기 (닉네임)
         val outer_layout = findViewById<ConstraintLayout>(R.id.layout_signup3) // 레이아웃 가져오기
@@ -170,6 +179,18 @@ class SignUpActivity3 : AppCompatActivity() {
             }
     }
 
+    // 이전 화면으로 되돌리기 구현
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            android.R.id.home -> {
+                finish()
+                return true
+            }
+            else -> {
+                return super.onOptionsItemSelected(item)
+            }
+        }
+    }
 
     //키보드 숨기기
     fun hideKeyboard() {
