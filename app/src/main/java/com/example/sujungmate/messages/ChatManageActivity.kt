@@ -68,6 +68,7 @@ class ChatManageActivity : AppCompatActivity() {
         // 바텀 버튼
         myPageBtn_chatmanage.setOnClickListener{
             val intent = Intent(this, MyPageActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
         }
         /*
@@ -77,6 +78,7 @@ class ChatManageActivity : AppCompatActivity() {
         }*/
         mateBtn_chatmanage.setOnClickListener{
             val intent = Intent(this, MateManageActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
         }
 
