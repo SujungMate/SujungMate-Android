@@ -18,8 +18,8 @@ data class Users(
     // 학번 비교 함수
     override fun compareTo(other: Users): Int {
         try {
-            val thisID : Int = this.stuNum.toInt() / 10000  // 학번 4자리 (나)
-            val otherID : Int = this.stuNum.toInt() / 10000 // 학번 4자리 (상대방)
+            val thisID : Int = this.stuNum.slice(IntRange(2,3)).toInt()  // 학번 4자리 (나)
+            val otherID : Int = other.stuNum.slice(IntRange(2,3)).toInt() // 학번 4자리 (상대방)
 
             when {
                 thisID > otherID -> return 1 // other : 선배
