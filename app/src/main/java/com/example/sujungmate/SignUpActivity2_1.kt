@@ -23,14 +23,11 @@ class SignUpActivity2_1 : AppCompatActivity() {
         val ab = supportActionBar!!
         ab.setDisplayShowTitleEnabled(false)
         ab.setDisplayHomeAsUpEnabled(true)
-
-        /*
+        
         next_button_signup2_1.setOnClickListener{
 
             sendEmailCheck()
         }
-
-         */
     }
 
     private fun sendEmailCheck() {
