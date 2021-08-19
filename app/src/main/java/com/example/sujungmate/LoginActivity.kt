@@ -62,6 +62,7 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
+
         /*
         val back_to_register_text_view = findViewById<TextView>(R.id.back_to_register_text_view)
         back_to_register_text_view.setOnClickListener {
@@ -69,6 +70,18 @@ class LoginActivity : AppCompatActivity() {
         }
         */
     }
+
+        /*
+    fun resetPassword() {
+        FirebaseAuth.getInstance().sendPasswordResetEmail(editText_email.text.toString())
+            .addOnCompleteListener {	task ->
+                if (task.isSuccessful) {
+                    Toast.makeText(this,"재설정 메일을 보냈습니다. 메일을 확인해보세요!",Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast(task.getException)
+                }
+            }
+    }*/
 
     //키보드 숨기기
     fun hideKeyboard() {

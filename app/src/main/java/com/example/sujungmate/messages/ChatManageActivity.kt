@@ -33,6 +33,7 @@ class ChatManageActivity : AppCompatActivity() {
         // 레이아웃 꾸미는 걸로 변경함
         recyclerview_chat_manage.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
 
+        // 액션바처럼 옵션 이용
         val toolbar = findViewById<Toolbar>(R.id.toolbar_chatmanage)
         setSupportActionBar(toolbar)
         val ab = supportActionBar!!
