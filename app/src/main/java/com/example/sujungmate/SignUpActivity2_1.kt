@@ -33,7 +33,6 @@ class SignUpActivity2_1 : AppCompatActivity() {
          */
     }
 
-    /*
     private fun sendEmailCheck() {
         val usertask = FirebaseAuth.getInstance().currentUser!!.reload()
 
@@ -44,7 +43,7 @@ class SignUpActivity2_1 : AppCompatActivity() {
                 val stuNum = intent.getStringExtra("stuNum")
                 // signup3 액티비티로 이동
                 val intent = Intent(this, SignUpActivity3::class.java)
-                intent.putExtra("stuNum",stuNum)
+                intent.putExtra("stuNum", stuNum)
                 intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(intent)
 
@@ -62,7 +61,6 @@ class SignUpActivity2_1 : AppCompatActivity() {
 
 
     }
-     */
 
     // 이전 화면으로 되돌리기 구현
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

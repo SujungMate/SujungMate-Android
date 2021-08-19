@@ -93,13 +93,6 @@ class SignUpActivity2 : AppCompatActivity() {
                 // 이메일 유효성 확인
                 //sendEmailVerification()
 
-                // 이메일인증 주석처리: 주석 지우기
-                val intent = Intent(this, SignUpActivity3::class.java)
-                intent.putExtra("stuNum",stuNum)
-                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
-                startActivity(intent)
-
-                /*
                 // 유저에게 이메일 보내기
                 FirebaseAuth.getInstance().currentUser!!.sendEmailVerification().addOnCompleteListener { task ->
                     if (task.isSuccessful) { // 이메일 전송 성공
@@ -111,7 +104,7 @@ class SignUpActivity2 : AppCompatActivity() {
                     } else { // 이메일 전송 실패
                         Toast.makeText(this,"이메일 전송을 실패했습니다.",Toast.LENGTH_SHORT).show()
                     }
-                }*/
+                }
 
             }
             .addOnFailureListener{
