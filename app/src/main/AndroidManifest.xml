@@ -35,7 +35,11 @@
             android:exported="true" />
         <activity
             android:name=".MateSearchActivity"
-            android:exported="true" />
+            android:exported="true">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MateManageActivity" />
+        </activity>
 
         <meta-data
             android:name="com.google.android.actions"
@@ -50,7 +54,11 @@
         </activity>
         <activity
             android:name=".messages.ChatManageActivity"
-            android:exported="true" />
+            android:exported="true">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MyPageActivity" />
+        </activity>
         <activity
             android:name=".SignUpActivity4"
             android:exported="true" />
@@ -67,7 +75,11 @@
         <activity android:name=".PWChangeActivity"
             android:exported="true" />
         <activity android:name=".MateManageActivity"
-            android:exported="true" />
+            android:exported="true">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MyPageActivity" />
+        </activity>
     </application>
 
 </manifest>
