@@ -9,9 +9,11 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.dongmin.www.customdialog.CustomDialog
 import com.example.sujungmate.messages.ChatManageActivity
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.receive_request_item.*
 
 
 class LoginActivity : AppCompatActivity() {
@@ -62,6 +64,26 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
+        val dialog = CustomDialog(this)
+
+        // 비밀번호 재설정
+        resetpassword_button_login.setOnClickListener{
+            var setpassword_email: String
+
+
+            dialog.myDialog()
+
+            dialog.setOnOKClickedListener(object :CustomDialog.MyDialogOKClickedListener{
+                override fun onOKClicked(studentNum: String) {
+                    setpassword_email = studentNum
+                    Log.d("입력한 이메일:","{$setpassword_email}")
+                    resetPassword(setpassword_email)
+                }
+            })
+        }
+
+
+
 
         /*
         val back_to_register_text_view = findViewById<TextView>(R.id.back_to_register_text_view)
@@ -71,17 +93,19 @@ class LoginActivity : AppCompatActivity() {
         */
     }
 
-        /*
-    fun resetPassword() {
-        FirebaseAuth.getInstance().sendPasswordResetEmail(editText_email.text.toString())
+
+    // 비밀번호 재설정
+    fun resetPassword(setpassword_email:String) {
+        Log.d("비밀번호 재설정: ","시작")
+        FirebaseAuth.getInstance().sendPasswordResetEmail(setpassword_email)
             .addOnCompleteListener {	task ->
                 if (task.isSuccessful) {
+                    Log.d("비밀번호 재설정: ","성공")
                     Toast.makeText(this,"재설정 메일을 보냈습니다. 메일을 확인해보세요!",Toast.LENGTH_SHORT).show()
                 } else {
-                    Toast(task.getException)
                 }
             }
-    }*/
+    }
 
     //키보드 숨기기
     fun hideKeyboard() {
