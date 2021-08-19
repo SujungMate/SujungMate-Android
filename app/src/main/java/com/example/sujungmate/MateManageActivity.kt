@@ -6,14 +6,34 @@ import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.sujungmate.messages.ChatManageActivity
 import com.example.sujungmate.tables.Request
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import kotlinx.android.synthetic.main.activity_chat_manage.*
+import kotlinx.android.synthetic.main.activity_mate_manage.*
 
 class MateManageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mate_manage)
+
+        // 바텀 버튼
+        myPage_mateManage.setOnClickListener{
+            val intent = Intent(this, MyPageActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+        }
+        chatRoom_mateManage.setOnClickListener{
+            val intent = Intent(this, ChatManageActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+        }
+//        mateBtn_chatmanage.setOnClickListener{
+//            val intent = Intent(this, MateManageActivity::class.java)
+//            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+//            startActivity(intent)
+//        }
 
         //변수 선언
         var sendReqArrayList : ArrayList<Request> = ArrayList<Request>()
