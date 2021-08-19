@@ -5,13 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.example.sujungmate.messages.ChatManageActivity
+import com.example.sujungmate.tables.ChatMessage
 import com.example.sujungmate.tables.Users
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.*
+import com.google.firebase.firestore.auth.User
 import com.squareup.picasso.Picasso
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Item
@@ -66,6 +65,37 @@ class MyPageActivity : AppCompatActivity() {
 
             override fun onCancelled(error: DatabaseError) {
 
+            }
+        })
+
+        listenForUserInfo()
+    }
+
+    // 사용자 정보 실시간 적용
+    private fun listenForUserInfo(){
+        val userId = FirebaseAuth.getInstance().uid
+        val ref = FirebaseDatabase.getInstance().getReference("/users/$userId")
+        ref.addChildEventListener(object : ChildEventListener {
+            override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
+            }
+
+            // 내 정보 수정 시 이벤트 리스너 적용
+            override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {
+                Log.d("ChildChanged", "changing detected")
+                // 회원 정보 적용
+                for (snapshot in snapshot.children) {
+                    val user = snapshot.getValue(Users::class.java) ?: return
+                    ref.setValue(user)
+                }
+            }
+
+            override fun onChildRemoved(snapshot: DataSnapshot) {
+            }
+
+            override fun onChildMoved(snapshot: DataSnapshot, previousChildName: String?) {
+            }
+
+            override fun onCancelled(error: DatabaseError) {
             }
         })
     }
