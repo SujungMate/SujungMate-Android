@@ -1,10 +1,13 @@
 package com.example.sujungmate
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.MediaStore
 import android.text.Editable
 import android.util.Log
 import android.view.MenuItem
@@ -24,8 +27,10 @@ import kotlinx.android.synthetic.main.activity_my_page.*
 import kotlinx.android.synthetic.main.activity_sign_up4.*
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_info_modify.view.*
 import kotlinx.android.synthetic.main.activity_sign_up3.*
+import java.util.*
 
 
 class InfoModifyActivity : AppCompatActivity() {
@@ -50,12 +55,12 @@ class InfoModifyActivity : AppCompatActivity() {
             hideKeyboard()
         }
 
-//        // 프로필 사진
-//        profileImage_infoModify.setOnClickListener{
-//            val intent = Intent(Intent.ACTION_PICK)
-//            intent.type = "image/*"
-//            startActivityForResult(intent,0)
-//        }
+        // 프로필 사진
+            profileImage_infoModify.setOnClickListener{
+            val intent = Intent(Intent.ACTION_PICK)
+            intent.type = "image/*"
+            startActivityForResult(intent,0)
+        }
 
         changePW_infoModify.setOnClickListener {
             val intent = Intent(this, PWChangeActivity::class.java)
@@ -63,50 +68,97 @@ class InfoModifyActivity : AppCompatActivity() {
         }
 
         modifyBtn_infoModify.setOnClickListener {
-            // Firebase 데이터 수정
-            val uid = FirebaseAuth.getInstance().uid
-            val ref = FirebaseDatabase.getInstance().getReference("/users/$uid")
-            val ref_uid = FirebaseDatabase.getInstance().getReference("/users/$uid/uid")
-            Log.d("database", "DB connected")
-
-            ref.addListenerForSingleValueEvent(object: ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    currentUser = snapshot.getValue(Users::class.java)
-                    Log.d("onDataChange", "Function worked")
-
-                    var user : Users = Users()
-
-                    // val profileImg = currentUser!!.profile_img
-                    // Log.d("img", "img stored in profileImg")
-
-                    user.stuNum = currentUser!!.stuNum
-                    user.nickname = nickname_infoModify.text.toString()
-                    user.major = major_infoModify.selectedItem.toString()
-                    user.lecture = lecture_infoModify.text.toString()
-                    user.mbti = mbti_infoModify.selectedItem.toString()
-                    user.interest = interest1_infoModify.selectedItem.toString()
-                    user.msg = statusMessage_infoModify.text.toString()
-                    user.profile_img = currentUser!!.profile_img
-                    Log.d("profile_img", "img stored in users {$currentUser!!.profile_img}\n")
-
-                    // 이미지는 추후 반영
-                    // user.profile_img = currentUser!!.profile_img
-                    // Log.d("profile", "Image stored")
-
-                    ref.setValue(user)
-                    Log.d("set user", "set user's value")
-                    ref_uid.setValue(uid)
-                    Log.d("set uid", "set uid")
-                    // ref_stuNum.setValue(currentUser!!.stuNum)
-                    // Log.d("set stuNum", "set stuNum")
-                }
-                override fun onCancelled(error: DatabaseError) {
-
-                }
-            })
-            val intent = Intent(this, MyPageActivity::class.java)
-            startActivity(intent)
+            uploadImagetoFirebaseStorage()
         }
+    }
+
+    var selectedPhotoUri: Uri? = null
+    var newPhotoPath: String? = "테스트"
+
+    // 프로필 사진 선택
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if(requestCode == 0 && resultCode == Activity.RESULT_OK && data != null){
+            // proceed and check what the selected image was....
+            Log.d("InfoModifyActivity","사진 선택됨")
+
+            selectedPhotoUri = data.data
+            val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, selectedPhotoUri)
+            val bitmapDrawable = BitmapDrawable(bitmap)
+            // val selectphoto_button_register = findViewById<Button>(R.id.selectphoto_button_register)
+
+            profileImage_infoModify.setBackgroundDrawable(bitmapDrawable)
+        }
+    }
+
+    // 파이어베이스 저장소에 새 프로필 사진 저장
+    private fun uploadImagetoFirebaseStorage() {
+        if (selectedPhotoUri == null) return
+
+        val filename = UUID.randomUUID().toString()
+        val ref = FirebaseStorage.getInstance().getReference("/images/$filename")
+
+        ref.putFile(selectedPhotoUri!!).addOnSuccessListener {
+            Log.d("InfoModifyActivity","Successfully uploaded image: ${it.metadata?.path}")
+
+            ref.downloadUrl.addOnSuccessListener {
+                Log.d("InfoModifyActivity","File Location: $it")
+                // 새로운 사진 경로 저장
+                newPhotoPath = it.toString()
+                Log.d("profile_img", "img stored in users {$newPhotoPath}\n")
+                saveUserToFirebaseDatabase(it.toString())
+            }
+        }.addOnFailureListener{
+
+        }
+    }
+
+    // Firebase에 실제로 저장
+    private fun saveUserToFirebaseDatabase(profileImageUrl: String){
+        // Firebase 데이터 수정
+        val uid = FirebaseAuth.getInstance().uid
+        val ref = FirebaseDatabase.getInstance().getReference("/users/$uid")
+        val ref_uid = FirebaseDatabase.getInstance().getReference("/users/$uid/uid")
+        Log.d("database", "DB connected")
+        
+        ref.addListenerForSingleValueEvent(object: ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                currentUser = snapshot.getValue(Users::class.java)
+                Log.d("onDataChange", "Function worked")
+
+                var user : Users = Users()
+
+                // val profileImg = currentUser!!.profile_img
+                // Log.d("img", "img stored in profileImg")
+
+                user.stuNum = currentUser!!.stuNum
+                user.nickname = nickname_infoModify.text.toString()
+                user.major = major_infoModify.selectedItem.toString()
+                user.lecture = lecture_infoModify.text.toString()
+                user.mbti = mbti_infoModify.selectedItem.toString()
+                user.interest = interest1_infoModify.selectedItem.toString()
+                user.msg = statusMessage_infoModify.text.toString()
+                user.profile_img = profileImageUrl
+                Log.d("프로필 재설정: ", "{$newPhotoPath}")
+
+                // 이미지는 추후 반영
+                // user.profile_img = currentUser!!.profile_img
+                // Log.d("profile", "Image stored")
+
+                ref.setValue(user)
+                Log.d("set user", "set user's value")
+                ref_uid.setValue(uid)
+                Log.d("set uid", "set uid")
+                // ref_stuNum.setValue(currentUser!!.stuNum)
+                // Log.d("set stuNum", "set stuNum")
+            }
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+        })
+        val intent = Intent(this, MyPageActivity::class.java)
+        startActivity(intent)
     }
 
     // String -> Editable 타입 변환
