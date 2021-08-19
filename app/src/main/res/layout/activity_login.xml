@@ -45,19 +45,19 @@
 
     <Button
         android:id="@+id/signup_button_login"
-        android:layout_width="94dp"
+        android:layout_width="60dp"
         android:layout_height="39dp"
 
         android:background="#00ff0000"
         android:text="회원가입"
         android:textColor="#582F81"
-
+        android:textSize="13dp"
         app:layout_constraintBottom_toTopOf="@+id/login_button_login"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.867"
+        app:layout_constraintHorizontal_bias="0.861"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password_edittext_login"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.08"
         tools:ignore="TouchTargetSizeCheck" />
 
     <Button
@@ -109,5 +109,21 @@
         app:layout_constraintStart_toStartOf="@+id/schoolemail_edittext_login"
         app:layout_constraintTop_toTopOf="@+id/schoolemail_edittext_login"
         app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/resetpassword_button_login"
+        android:layout_width="wrap_content"
+        android:layout_height="39dp"
+        android:layout_marginRight="3dp"
+        android:layout_marginBottom="24dp"
+        android:background="#00ff0000"
+        android:text="비밀번호 재설정"
+        android:textColor="#582F81"
+        android:textSize="13dp"
+        app:layout_constraintBottom_toTopOf="@+id/login_button_login"
+        app:layout_constraintEnd_toStartOf="@+id/signup_button_login"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TouchTargetSizeCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

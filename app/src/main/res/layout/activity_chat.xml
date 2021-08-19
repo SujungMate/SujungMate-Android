@@ -31,11 +31,11 @@
                 tools:layout_editor_absoluteX="145dp"
                 tools:layout_editor_absoluteY="14dp" />
             <TextView
-                android:id="@+id/toolbar_chat_major"
+                android:id="@+id/toolbar_chat_major_stunum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
-                android:text="major"
+                android:text="major+stunum"
                 android:textColor="#582F81"
                 android:textSize="14sp"/>
         </LinearLayout>
@@ -48,7 +48,9 @@
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginEnd="6dp"
+        android:layout_marginRight="6dp"
         android:layout_marginBottom="16dp"
         android:background="#F2F2F2"
         android:ems="10"
@@ -56,9 +58,7 @@
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/send_button_chat_log"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="6dp" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/send_button_chat_log"

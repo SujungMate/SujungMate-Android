@@ -34,7 +34,7 @@ class LatestMessageRow(val chatMessage: ChatMessage): Item<ViewHolder>(){
             override fun onDataChange(snapshot: DataSnapshot) {
                 chatPartnerUser = snapshot.getValue(Users::class.java)
                 viewHolder.itemView.username_textview_latest_message.text = chatPartnerUser?.nickname
-                viewHolder.itemView.major_stunum_textview_latest_message.text = chatPartnerUser?.major
+                viewHolder.itemView.major_stunum_textview_latest_message.text = chatPartnerUser?.major + " " + chatPartnerUser?.stuNum?.slice(IntRange(2,3)) + "학번"
 
                 // 유저에 맞는 이미지 사진
                 val targetImageView = viewHolder.itemView.imageview_latest_message

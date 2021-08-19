@@ -1,8 +1,12 @@
 package com.example.sujungmate.messages
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
+import com.example.sujungmate.LoginActivity
 import com.example.sujungmate.R
 import com.example.sujungmate.tables.ChatMessage
 import com.example.sujungmate.tables.Users
@@ -47,8 +51,8 @@ class ChatActivity : AppCompatActivity() {
         supportActionBar?.title = toUser?.nickname
 
         // 채팅창 tool바 이름, 전공
-        toolbar_chat_name.setText(toUser?.nickname)
-        toolbar_chat_major.setText(toUser?.major)
+        toolbar_chat_name.text = toUser?.nickname
+        toolbar_chat_major_stunum.text = toUser?.major + " " + toUser?.stuNum?.slice(IntRange(2,3)) + "학번"
         // 뒤로가기
         setSupportActionBar(toolbar_chat)
         val ab = supportActionBar!!
@@ -66,6 +70,26 @@ class ChatActivity : AppCompatActivity() {
             Log.d(TAG,"Attempt to send message...")
             performSendMessage()
         }
+    }
+
+    // 액션바일때의 옵션
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item?.itemId) {
+            // 짝수정 요청
+            R.id.menu_sujungmate -> {
+
+            }
+            // 신고하기
+            R.id.menu_report -> {
+
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.chat_menu,menu)
+        return super.onCreateOptionsMenu(menu)
     }
 
     private fun listenForMessages(){
