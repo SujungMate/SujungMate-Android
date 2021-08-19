@@ -102,4 +102,42 @@
             tools:ignore="TextContrastCheck" />
     </LinearLayout>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/sendRequestListRV"
+        android:layout_width="340dp"
+        android:layout_height="305dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/navigation_mateManage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sendRequest_mateManage"
+        tools:listitem="@layout/send_request_item" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/receiveRequestListRV"
+        android:layout_width="340dp"
+        android:layout_height="150dp"
+        app:layout_constraintBottom_toTopOf="@+id/sendRequest_mateManage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/receiveRequest_mateManage"
+        tools:listitem="@layout/receive_request_item" />
+
+    <Button
+        android:id="@+id/goMateType"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="27dp"
+        android:background="@drawable/button_plus"
+        android:text="+"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/navigation_mateManage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.974" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

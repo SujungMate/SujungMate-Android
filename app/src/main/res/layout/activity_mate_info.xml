@@ -76,8 +76,8 @@
 
             <ToggleButton
                 android:id="@+id/junior_mateInfo"
-                android:layout_width="60dp"
-                android:layout_height="35dp"
+                android:layout_width="70dp"
+                android:layout_height="40dp"
                 android:background="@drawable/relationship_toggle"
                 android:text="후배"
                 android:textOff="@string/r1_junior"
@@ -85,8 +85,8 @@
 
             <ToggleButton
                 android:id="@+id/classmate_mateInfo"
-                android:layout_width="60dp"
-                android:layout_height="35dp"
+                android:layout_width="70dp"
+                android:layout_height="40dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/relationship_toggle"
@@ -96,8 +96,8 @@
 
             <ToggleButton
                 android:id="@+id/senior_mateInfo"
-                android:layout_width="60dp"
-                android:layout_height="35dp"
+                android:layout_width="70dp"
+                android:layout_height="40dp"
                 android:background="@drawable/relationship_toggle"
                 android:text="선배"
                 android:textOff="@string/r3_senior"

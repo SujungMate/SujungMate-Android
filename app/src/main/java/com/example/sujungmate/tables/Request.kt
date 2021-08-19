@@ -5,6 +5,7 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class Request (
+        val uid : String = "", // 사용자 uid
         var profile_img : String = "", // 프로필 사진
         val nickname : String? = null, // 닉네임
         var major : String = "", // 주전공
