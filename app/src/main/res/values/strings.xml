@@ -61,6 +61,8 @@
     <string name="text_goMateManage">매칭관리로 이동</string>
     <string name="text_error_noMatch">검색 결과가 없습니다.</string>
     <string name="MAJORandSTUNUM">%1$s\n%2$d학번</string>
+    <string name="accept">수 락</string>
+    <string name="decline">거 절</string>
 
     <string name="prompt_totalEmail">이메일 입력</string>
 </resources>
