@@ -1,4 +1,4 @@
-package com.example.sujungmate
+package com.example.sujungmate.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,11 +7,11 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.sujungmate.R
 import com.example.sujungmate.tables.Users
 import com.squareup.picasso.Picasso
 
-class MyAdapter(private val userList: ArrayList<Users>) :
-    RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
+class MyAdapter(private val userList: ArrayList<Users>) : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
     private val limit: Int = 4
     private lateinit var mlistener: onItemClickListener
 

@@ -103,14 +103,11 @@
 
     <LinearLayout
         android:id="@+id/navigation_myPage"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="1dp"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/modifyBtn_myPage">
+        tools:layout_editor_absoluteX="-40dp">
 
         <Button
             android:id="@+id/myPageBtn_myPage"
