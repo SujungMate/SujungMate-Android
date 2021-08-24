@@ -1,4 +1,4 @@
-package com.example.sujungmate
+package com.example.sujungmate.tables
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

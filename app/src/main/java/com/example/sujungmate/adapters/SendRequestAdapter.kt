@@ -1,4 +1,4 @@
-package com.example.sujungmate
+package com.example.sujungmate.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,19 +6,20 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.sujungmate.R
 import com.example.sujungmate.tables.Request
 import com.squareup.picasso.Picasso
 
 class SendRequestAdapter(private val reqList : ArrayList<Request>) : RecyclerView.Adapter<SendRequestAdapter.MyViewHolder2>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SendRequestAdapter.MyViewHolder2 {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder2 {
         val itemView = LayoutInflater.from(parent.context).inflate(
             R.layout.send_request_item,
             parent, false
         )
-        return SendRequestAdapter.MyViewHolder2(itemView)
+        return MyViewHolder2(itemView)
     }
 
-    override fun onBindViewHolder(holder: SendRequestAdapter.MyViewHolder2, position: Int) {
+    override fun onBindViewHolder(holder: MyViewHolder2, position: Int) {
         val currentItem = reqList[position]
 
         Picasso.get().load(currentItem.profile_img).into(holder.PROFILE)
