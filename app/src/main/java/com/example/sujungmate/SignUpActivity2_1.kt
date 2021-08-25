@@ -23,7 +23,7 @@ class SignUpActivity2_1 : AppCompatActivity() {
         val ab = supportActionBar!!
         ab.setDisplayShowTitleEnabled(false)
         ab.setDisplayHomeAsUpEnabled(true)
-        
+
         next_button_signup2_1.setOnClickListener{
 
             sendEmailCheck()
@@ -40,7 +40,7 @@ class SignUpActivity2_1 : AppCompatActivity() {
                 val stuNum = intent.getStringExtra("stuNum")
                 // signup3 액티비티로 이동
                 val intent = Intent(this, SignUpActivity3::class.java)
-                intent.putExtra("stuNum", stuNum)
+                intent.putExtra("stuNum",stuNum)
                 intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(intent)
 

@@ -6,17 +6,16 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import com.example.sujungmate.LoginActivity
-import com.example.sujungmate.MateManageActivity
+import com.example.sujungmate.MyPageActivity
 import com.example.sujungmate.R
 import com.example.sujungmate.tables.ChatMessage
 import com.example.sujungmate.tables.Request
+import com.example.sujungmate.tables.SujungMateSend
 import com.example.sujungmate.tables.Users
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.ChildEventListener
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 import com.google.firebase.firestore.auth.User
 import com.squareup.picasso.Picasso
 import com.xwray.groupie.GroupAdapter
@@ -33,6 +32,7 @@ class ChatActivity : AppCompatActivity() {
 
     val adapter = GroupAdapter<ViewHolder>()
 
+    var userPartner: Users? = null
     var toUser: Users? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,7 +47,7 @@ class ChatActivity : AppCompatActivity() {
         // NewMessagesActivity에서 가져왔던 유저키로 유저네임 가져오기
         //val username = intent.getStringExtra(NewMessagesActivity.USER_KEY)
         // Parcelable 이용
-        toUser = intent.getParcelableExtra<Users>(MateManageActivity.USER_KEY)
+        toUser = intent.getParcelableExtra<Users>(NewMessagesActivity.USER_KEY)
 
         // username으로 액션바 타이틀 변경하기
         supportActionBar?.title = toUser?.nickname
@@ -64,7 +64,7 @@ class ChatActivity : AppCompatActivity() {
         // 채팅 돌기 테스트 (xml 상에서 넣은 text 확인)
         //setUpDummyData()
 
-        // 실제 채팅 보이기
+        // 실제 채팅 보이기f
         listenForMessages()
 
         send_button_chat_log.setOnClickListener{
@@ -79,11 +79,11 @@ class ChatActivity : AppCompatActivity() {
         when (item?.itemId) {
             // 짝수정 요청
             R.id.menu_sujungmate -> {
-
+                performSendSujungmate()
             }
             // 신고하기
             R.id.menu_report -> {
-
+                Toast.makeText(this,"신고하였습니다.",Toast.LENGTH_SHORT).show()
             }
         }
         return super.onOptionsItemSelected(item)
@@ -140,13 +140,58 @@ class ChatActivity : AppCompatActivity() {
         })
     }
 
+    // 짝수정 요청(중복 안 되게 한번만 가능) 시 경로 추가
+    private fun performSendSujungmate(){
+        // Toast.makeText(this,"짝수정 요청을 보냈습니다.",Toast.LENGTH_SHORT).show()
+        // 보낸 사람 uid
+        val fromId = FirebaseAuth.getInstance().uid
+        val user = intent.getParcelableExtra<Users>(NewMessagesActivity.USER_KEY)
+        // 받은 사람 uid
+        val toId = user!!.uid
+
+        if(fromId == null) return
+
+        val ref = FirebaseDatabase.getInstance().getReference("/sujungmate/send/$fromId/$toId")
+
+        ref.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if(!snapshot.exists()){
+                    val reference = FirebaseDatabase.getInstance().getReference("/sujungmate/send/$fromId/$toId").push()
+                    val toReference = FirebaseDatabase.getInstance().getReference("/sujungmate/receive/$toId/$fromId").push()
+
+                    val sujungMateSend = SujungMateSend(reference.key!!,true, fromId, toId,System.currentTimeMillis()/1000)
+                    reference.setValue(sujungMateSend).addOnSuccessListener {
+                        Log.d(TAG,"Saved our chat message: ${reference.key}")
+                    }
+                    toReference.setValue(sujungMateSend)
+                    // return
+                } else{
+
+                }
+            }
+            override fun onCancelled(error: DatabaseError) {
+            }
+        })
+
+        /*
+        // 파이어베이스 경로에 짝수정 넣기
+        val reference = FirebaseDatabase.getInstance().getReference("/sujungmate/send/$fromId/$toId").push()
+        val toReference = FirebaseDatabase.getInstance().getReference("/sujungmate/receive/$toId/$fromId").push()
+
+        val sujungMateSend = SujungMateSend(reference.key!!,true, fromId, toId,System.currentTimeMillis()/1000)
+        reference.setValue(sujungMateSend).addOnSuccessListener {
+            Log.d(TAG,"Saved our chat message: ${reference.key}")
+        }
+        toReference.setValue(sujungMateSend)*/
+    }
+
     private fun performSendMessage(){
         // 어떻게 파이어베이스에 메세지를 보내는지 구현
         val text = edittext_chat_log.text.toString()
 
         // 보낸 사람 uid
         val fromId = FirebaseAuth.getInstance().uid
-        val user = intent.getParcelableExtra<Users>(MateManageActivity.USER_KEY)
+        val user = intent.getParcelableExtra<Users>(NewMessagesActivity.USER_KEY)
         // 받은 사람 uid
         val toId = user!!.uid
 
@@ -222,3 +267,4 @@ class ChatToItem(val text: String, val user:Users): Item<ViewHolder>() {
         return R.layout.chat_to_row
     }
 }
+
