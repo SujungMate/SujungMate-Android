@@ -195,6 +195,8 @@ class MateSearchActivity : AppCompatActivity() {
                             noResult.visibility = View.VISIBLE
                         }
 
+                        // 순서 랜덤으로 섞기
+                        userArrayList.shuffle()
                         // 최종적으로 저장된 user 정보 리사이클러 뷰 어댑터 연결
                         val adapter = MyAdapter(userArrayList)
                         sujungMateListRV.adapter = adapter
