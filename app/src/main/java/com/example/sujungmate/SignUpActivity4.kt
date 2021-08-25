@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
+import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.appcompat.widget.Toolbar
@@ -40,65 +41,107 @@ class SignUpActivity4 : AppCompatActivity() {
         val selectedPhotoUri = intent.getStringExtra("selectedPhotoUri")
         val major = intent.getStringExtra("major")
 
+        // MBTI, 관심사에 대한 spinner 세팅
+        SpinnerSettings(findViewById(R.id.mbti_spinner_signup4), R.array.MBTI_type)
+        SpinnerSettings(findViewById(R.id.topinterest_spinner_signup4), R.array.large_category)
+
+        // 관심사1 - 대분류 스피너 설정
+        val mainCategorySpinner = findViewById<Spinner>(R.id.topinterest_spinner_signup4)
+        val mainSpinnerAdapter = ArrayAdapter.createFromResource(
+            this,
+            R.array.large_category,
+            android.R.layout.simple_spinner_item
+        )
+        mainCategorySpinner.adapter = mainSpinnerAdapter // 어댑터 연결
+        mainSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+        // 관심사2 - 소분류 스피너 설정
+        val subCategorySpinner = findViewById<Spinner>(R.id.underinterest_spinner_signup4)
+        var subSpinnerAdapter = ArrayAdapter.createFromResource(
+            this,
+            R.array.sub_category_title,
+            android.R.layout.simple_spinner_item
+        )
+        subCategorySpinner.adapter = subSpinnerAdapter
+        subSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+        // 스피너 동작 감지(다중 스피너)
+        mainCategorySpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                if (position == 0) { // 소분류
+                    subSpinnerAdapter = ArrayAdapter.createFromResource(
+                        this@SignUpActivity4,
+                        R.array.sub_category_title,
+                        android.R.layout.simple_spinner_item
+                    )
+                } else if (position == 1) {    //엔터테인먼트·예술
+                    subSpinnerAdapter = ArrayAdapter.createFromResource(
+                        this@SignUpActivity4,
+                        R.array.sub_category_entertainment,
+                        android.R.layout.simple_spinner_item
+                    )
+                } else if (position == 2) { //생활·노하우·쇼핑
+                    subSpinnerAdapter = ArrayAdapter.createFromResource(
+                        this@SignUpActivity4,
+                        R.array.sub_category_dailyLife,
+                        android.R.layout.simple_spinner_item
+                    )
+                } else if (position == 3) {  //취미·여가·여행
+                    subSpinnerAdapter = ArrayAdapter.createFromResource(
+                        this@SignUpActivity4,
+                        R.array.sub_category_hobby,
+                        android.R.layout.simple_spinner_item
+                    )
+                } else {    //지식·동향(4)
+                    subSpinnerAdapter = ArrayAdapter.createFromResource(
+                        this@SignUpActivity4,
+                        R.array.sub_category_knowledge,
+                        android.R.layout.simple_spinner_item
+                    )
+                }
+
+                // 공통 기능
+                subCategorySpinner.adapter = subSpinnerAdapter
+                subSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+                subCategorySpinner.onItemSelectedListener =
+                    object : AdapterView.OnItemSelectedListener {
+                        override fun onItemSelected(
+                            parent: AdapterView<*>?,
+                            view: View?,
+                            position: Int,
+                            id: Long
+                        ) {
+//                            Toast.makeText(applicationContext, "2번째 스피너 완료", Toast.LENGTH_SHORT)
+//                                .show()
+
+                        }
+
+                        override fun onNothingSelected(parent: AdapterView<*>?) {
+                            Toast.makeText(applicationContext, "Nothing Selected", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                Toast.makeText(applicationContext, "Nothing Selected", Toast.LENGTH_SHORT).show()
+            }
+
+        }
 
         signup_button_signup4.setOnClickListener {
             var lecture = lecture1_edittext_signup4.text.toString()
             var mbti= mbti_spinner_signup4.selectedItem.toString()
-            var interest = topinterest_spinner_signup4.selectedItem.toString()
+            var interest = subCategorySpinner.selectedItem.toString()
             val statusmessage = statusmessage_edittext_signup4.text.toString()
             saveUserToFirebaseDatabase(stuNum!!, major!!, nickname!!, lecture, mbti, interest,statusmessage, selectedPhotoUri!!)
         }
-
-        // MBTI, 관심사에 대한 spinner 세팅
-        //SpinnerSettings(findViewById(R.id.lecture1_spinner_signup4), R.array.MBTI_type)
-        SpinnerSettings(findViewById(R.id.mbti_spinner_signup4), R.array.MBTI_type)
-        SpinnerSettings(findViewById(R.id.topinterest_spinner_signup4), R.array.large_category)
-
-        /*
-        // 회원가입 버튼 클릭 시 특징 데이터 추가
-        findViewById<View>(R.id.signup_button_signup4).setOnClickListener {
-
-            // 1. 수강과목 (띄어쓰기 제거)
-            var LECTURE : String? = findViewById<EditText>(R.id.lecture1_spinner_signup4).text.toString().trim()
-
-            // 2.MBTI
-            var MBTI : String = findViewById<Spinner>(R.id.mbti_spinner_signup4).selectedItem.toString()
-
-            // 3. 관심사
-            var INTEREST : String? = findViewById<Spinner>(R.id.topinterest_spinner_signup4).selectedItem.toString()
-
-            // 이전 액티비티에서 학번, 닉네임, 주전공 가져오기
-            var subdistinction : SubDistinction? = intent.getParcelableExtra("sub_distinction")
-            var STUDENTID : Long? = subdistinction?.subStudentID
-            var NICKNAME : String? = subdistinction?.subNickname
-            var MAJOR : String? = subdistinction?.subMajor
-
-            Log.d("subdistinction : ", subdistinction.toString())
-
-            // firebase 데이터 저장
-            upload(LECTURE, MBTI, INTEREST.toString(), STUDENTID, NICKNAME.toString(), MAJOR.toString())
-
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
-        }*/
     }
-    /*
-    fun upload(lecture : String?, mbti : String, interest : String, studentID : Long?, nickname : String, major : String) {
-        // Distinction(특징) 데이터 클래스 생성
-        var distinction: Distinction = Distinction()
-
-        distinction.studentID = studentID
-        distinction.nickname = nickname
-        distinction.major = major
-        distinction.lecture = lecture
-        distinction.interest = interest
-        distinction.mbti = mbti
-
-        // Firebase DB에 특징 저장 - !!! 추후 회원 내부로 경로 변경 필요 !!!
-        val database : FirebaseDatabase = FirebaseDatabase.getInstance()
-        val myRef : DatabaseReference = database.getReference("distinctions")
-        myRef.setValue(distinction)
-    } */
 
 
 
