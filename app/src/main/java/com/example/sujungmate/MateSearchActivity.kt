@@ -90,6 +90,8 @@ class MateSearchActivity : AppCompatActivity() {
                         Log.d("전체 유저 (나 제외) : ", userArrayList.toString())
 
                         // 가져온 user 정보 리사이클러 뷰 어댑터 연결
+                        // 순서 랜덤으로 섞기
+                        userArrayList.shuffle()
                         val adapter = MyAdapter(userArrayList)
                         sujungMateListRV.adapter = adapter
 
