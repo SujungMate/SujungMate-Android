@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import com.example.sujungmate.*
 import com.example.sujungmate.R
 import com.example.sujungmate.tables.ChatMessage
-import com.example.sujungmate.tables.Request
 import com.example.sujungmate.tables.Users
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -94,7 +93,7 @@ class ChatManageActivity : AppCompatActivity() {
             // we are missing the chat partner user
             // 사용자에 맞는 채팅창 보이도록 연결 (LatestMessageRow에서 User을 chatPartnerUser로 따로 뽑아냄)
             val row = item as LatestMessageRow
-            intent.putExtra(MateManageActivity.USER_KEY,row.chatPartnerUser)
+            intent.putExtra(NewMessagesActivity.USER_KEY,row.chatPartnerUser)
             startActivity(intent)
         }
 
@@ -189,9 +188,10 @@ class ChatManageActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item?.itemId) {
             // 새메세지
+
             // manifest.xml에 parent_activity를 추가해서 뒤로가기 자동으로 생성
             R.id.menu_new_message -> {
-                val intent = Intent(this, MateManageActivity::class.java)
+                val intent = Intent(this, NewMessagesActivity::class.java)
                 startActivity(intent)
             }
             // 로그아웃
