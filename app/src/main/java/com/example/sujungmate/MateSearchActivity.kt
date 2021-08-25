@@ -3,17 +3,14 @@ package com.example.sujungmate
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.ContactsContract
+
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.sujungmate.adapters.MyAdapter
 import com.example.sujungmate.tables.Request
 import com.example.sujungmate.tables.SearchFilter
@@ -24,6 +21,7 @@ import com.google.firebase.database.*
 import com.google.firebase.firestore.auth.User
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_mate_search.*
+import java.util.*
 
 class MateSearchActivity : AppCompatActivity() {
     var userArrayList : ArrayList<Users> = arrayListOf()    // DB에서 가져와 담을 공간
@@ -54,8 +52,10 @@ class MateSearchActivity : AppCompatActivity() {
         // RecyclerView Settings
         sujungMateListRV.layoutManager = LinearLayoutManager(this@MateSearchActivity)
         sujungMateListRV.setHasFixedSize(true)
-        sujungMateListRV.adapter = MyAdapter(userArrayList)
+//        sujungMateListRV.adapter = MyAdapter(userArrayList)
 
+//        // TODO : 스와이프해서 새로고침하는 방법
+//        val swipeRefreshLayout = findViewById<swipeRefreshLayout>(R.id.swipeRefreshView)
         // 현재 로그인 한 계정이 없는 경우
         if(auth.currentUser != null) {
             if (filterClass != null) // 검색 조건이 있을 경우에
@@ -186,6 +186,12 @@ class MateSearchActivity : AppCompatActivity() {
                         Log.d("관심사 적용 user : ", userArrayList.toString())
 
                         Log.d("최종 user : ", userArrayList.toString())
+
+                        // 검색 결과 없음
+                        if(userArrayList.size == 0) {
+                            errorImg.visibility = View.VISIBLE
+                            noResult.visibility = View.VISIBLE
+                        }
 
                         // 최종적으로 저장된 user 정보 리사이클러 뷰 어댑터 연결
                         val adapter = MyAdapter(userArrayList)

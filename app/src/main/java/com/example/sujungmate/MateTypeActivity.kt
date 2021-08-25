@@ -4,9 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
-import android.view.View
-import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
+import kotlinx.android.synthetic.main.activity_mate_type.*
 
 class MateTypeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,13 +20,13 @@ class MateTypeActivity : AppCompatActivity() {
         ab.setDisplayHomeAsUpEnabled(true)
 
         // 랜덤 매칭
-        findViewById<View>(R.id.randomMatchButton).setOnClickListener {
+        randomMatchButton.setOnClickListener {
             val intent = Intent(this, MateSearchActivity::class.java)
             startActivity(intent)
         }
 
         // 세부 설정 후 매칭
-        findViewById<View>(R.id.detailsMatchButton).setOnClickListener {
+        detailsMatchButton.setOnClickListener {
             val intent = Intent(this, MateInfoActivity::class.java)
             startActivity(intent)
         }

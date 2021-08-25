@@ -7,8 +7,10 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import com.example.sujungmate.LoginActivity
+import com.example.sujungmate.MateManageActivity
 import com.example.sujungmate.R
 import com.example.sujungmate.tables.ChatMessage
+import com.example.sujungmate.tables.Request
 import com.example.sujungmate.tables.Users
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.ChildEventListener
@@ -45,7 +47,7 @@ class ChatActivity : AppCompatActivity() {
         // NewMessagesActivity에서 가져왔던 유저키로 유저네임 가져오기
         //val username = intent.getStringExtra(NewMessagesActivity.USER_KEY)
         // Parcelable 이용
-        toUser = intent.getParcelableExtra<Users>(NewMessagesActivity.USER_KEY)
+        toUser = intent.getParcelableExtra<Users>(MateManageActivity.USER_KEY)
 
         // username으로 액션바 타이틀 변경하기
         supportActionBar?.title = toUser?.nickname
@@ -144,7 +146,7 @@ class ChatActivity : AppCompatActivity() {
 
         // 보낸 사람 uid
         val fromId = FirebaseAuth.getInstance().uid
-        val user = intent.getParcelableExtra<Users>(NewMessagesActivity.USER_KEY)
+        val user = intent.getParcelableExtra<Users>(MateManageActivity.USER_KEY)
         // 받은 사람 uid
         val toId = user!!.uid
 
