@@ -58,6 +58,18 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline7"
         app:layout_constraintStart_toStartOf="@+id/guideline5" />
 
+    <view
+        android:id="@+id/swipeRefreshView"
+        class="androidx.swiperefreshlayout.widget.SwipeRefreshLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_mateSearch" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/sujungMateListRV"
         android:layout_width="0dp"

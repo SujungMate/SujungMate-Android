@@ -11,6 +11,7 @@ import android.widget.*
 import androidx.appcompat.widget.Toolbar
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.sujungmate.tables.SearchFilter
+import kotlinx.android.synthetic.main.activity_mate_info.*
 
 class MateInfoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -124,7 +125,7 @@ class MateInfoActivity : AppCompatActivity() {
         }
 
         // 검색 결과 화면으로 이동(매칭하기)
-        findViewById<View>(R.id.goMateSearch).setOnClickListener {
+        goMateSearch.setOnClickListener {
             // 최종 검색어 가져오기
             var RELATIONSHIP_STATE : ArrayList<ToggleButton> = arrayListOf() // 토글버튼 상태 리스트(후배, 동기, 선배)
             RELATIONSHIP_STATE.add(findViewById(R.id.junior_mateInfo))
