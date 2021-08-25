@@ -143,11 +143,13 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_mypage"
-        android:layout_width="wrap_content"
+        android:layout_width="330dp"
         android:layout_height="390dp"
+        android:layout_marginTop="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/line_myPage" />
+        app:layout_constraintTop_toTopOf="@+id/line_myPage"
+        tools:listitem="@layout/sujungmate_mypage" />
 
     <ImageView
         android:id="@+id/profileImage_myPage"
