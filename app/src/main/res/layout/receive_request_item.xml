@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="10dp"
-    android:layout_marginBottom="10dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
     app:cardCornerRadius="10dp">
 
     <LinearLayout
@@ -23,21 +23,26 @@
                 android:id="@+id/iv_PROFILE3_receive"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
                 tools:srcCompat="@tools:sample/avatars" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginStart="5dp"
-                android:layout_marginLeft="5dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
                 android:orientation="vertical"
                 android:weightSum="10">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="8"
-                    android:gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:layout_weight="5"
+                    android:gravity="center_vertical"
                     android:orientation="horizontal"
                     android:weightSum="10">
 
@@ -45,7 +50,6 @@
                         android:id="@+id/tv_NICKNAME_receive"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="2"
                         android:text="NICKNAME"
                         android:textColor="@color/black"
                         android:textSize="18sp" />
@@ -54,9 +58,12 @@
                         android:id="@+id/tv_STUNUMandMAJOR_receive"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginLeft="5dp"
                         android:layout_weight="8"
                         android:text="MAJOR\nSTUNUM"
-                        android:textColor="#582F81" />
+                        android:textColor="#582F81"
+                        android:textSize="10sp" />
 
                 </LinearLayout>
 
@@ -64,6 +71,9 @@
                     android:id="@+id/tv_MESSAGE_receive"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginBottom="8dp"
                     android:layout_weight="2"
                     android:text="MESSAGE---"
                     android:textColor="#757575" />

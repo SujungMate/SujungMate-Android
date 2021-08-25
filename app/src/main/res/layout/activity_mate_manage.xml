@@ -14,7 +14,7 @@
         android:id="@+id/title_mateManage"
         android:layout_width="wrap_content"
         android:layout_height="27dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:text="매칭 관리"
         android:textColor="#222222"
         android:textSize="20sp"
@@ -23,51 +23,105 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
+    <TextView
         android:id="@+id/receiveRequest_mateManage"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
-        android:layout_marginLeft="35dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginLeft="38dp"
         android:layout_marginTop="61dp"
-        android:layout_marginEnd="35dp"
-        android:layout_marginRight="35dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="   받은 요청"
-        android:textColor="#656565"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="514dp"
+        android:text=" 받은 요청"
+        app:layout_constraintBottom_toTopOf="@+id/navigation_mateManage"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="TouchTargetSizeCheck" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/sendRequest_mateManage"
+    <View
+        android:id="@+id/line1_mateManage"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0.1dp"
         android:layout_marginStart="35dp"
         android:layout_marginLeft="35dp"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="83dp"
         android:layout_marginEnd="35dp"
         android:layout_marginRight="35dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="   보낸 요청"
-        android:textColor="#656565"
-        android:textSize="14sp"
+        android:layout_marginBottom="510dp"
+        android:background="#656565"
+        app:layout_constraintBottom_toTopOf="@+id/navigation_mateManage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/receiveRequestListRV"
+        android:layout_width="340dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/line1_mateManage"
+        tools:listitem="@layout/receive_request_item" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginTop="10dp"
+        android:text=" 보낸 요청"
+        app:layout_constraintStart_toStartOf="@+id/view5"
+        app:layout_constraintTop_toBottomOf="@+id/receiveRequestListRV" />
+
+    <View
+        android:id="@+id/view5"
+        android:layout_width="0dp"
+        android:layout_height="0.1dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginRight="35dp"
+        android:background="#656565"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/sendRequestListRV"
+        android:layout_width="340dp"
+        android:layout_height="305dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/navigation_mateManage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:listitem="@layout/send_request_item" />
+
+    <Button
+        android:id="@+id/goMateType"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="27dp"
+        android:background="@drawable/button_plus"
+        android:text="+"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/navigation_mateManage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="TouchTargetSizeCheck" />
+        app:layout_constraintVertical_bias="0.974" />
 
     <LinearLayout
         android:id="@+id/navigation_mateManage"
-        android:layout_width="match_parent"
-        android:layout_height="64dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="-40dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line1_mateManage">
 
         <Button
             android:id="@+id/myPage_mateManage"
@@ -99,43 +153,5 @@
             android:textColor="#FFFFFF"
             tools:ignore="TextContrastCheck" />
     </LinearLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/sendRequestListRV"
-        android:layout_width="340dp"
-        android:layout_height="305dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginBottom="1dp"
-        app:layout_constraintBottom_toTopOf="@+id/navigation_mateManage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sendRequest_mateManage"
-        tools:listitem="@layout/send_request_item" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/receiveRequestListRV"
-        android:layout_width="340dp"
-        android:layout_height="150dp"
-        app:layout_constraintBottom_toTopOf="@+id/sendRequest_mateManage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/receiveRequest_mateManage"
-        tools:listitem="@layout/receive_request_item" />
-
-    <Button
-        android:id="@+id/goMateType"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginBottom="27dp"
-        android:background="@drawable/button_plus"
-        android:text="+"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/navigation_mateManage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.9"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.974" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

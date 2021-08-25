@@ -84,7 +84,8 @@
                     android:background="@drawable/button_radius_3_purple"
                     android:text="요청"
                     android:textColor="@color/white"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    tools:ignore="TouchTargetSizeCheck" />
             </LinearLayout>
 
         </LinearLayout>
