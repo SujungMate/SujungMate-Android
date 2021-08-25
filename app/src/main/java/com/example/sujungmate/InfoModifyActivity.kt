@@ -11,8 +11,9 @@ import android.provider.MediaStore
 import android.text.Editable
 import android.util.Log
 import android.view.MenuItem
+import android.view.View
 import android.view.inputmethod.InputMethodManager
-import android.widget.EditText
+import android.widget.*
 import androidx.appcompat.widget.Toolbar
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.sujungmate.tables.Users
@@ -25,8 +26,6 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_info_modify.*
 import kotlinx.android.synthetic.main.activity_my_page.*
 import kotlinx.android.synthetic.main.activity_sign_up4.*
-import android.widget.ArrayAdapter
-import android.widget.Toast
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_info_modify.view.*
 import kotlinx.android.synthetic.main.activity_sign_up3.*
@@ -37,6 +36,8 @@ class InfoModifyActivity : AppCompatActivity() {
     companion object {
         var currentUser: Users? = null
     }
+
+    var interest = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,6 +56,96 @@ class InfoModifyActivity : AppCompatActivity() {
             hideKeyboard()
         }
 
+        SpinnerSettings(findViewById(R.id.interest1_infoModify), R.array.large_category)
+
+        // 관심사1 - 대분류 스피너 설정
+        val mainCategorySpinner = findViewById<Spinner>(R.id.interest1_infoModify)
+        val mainSpinnerAdapter = ArrayAdapter.createFromResource(
+            this,
+            R.array.large_category,
+            android.R.layout.simple_spinner_item
+        )
+        mainCategorySpinner.adapter = mainSpinnerAdapter // 어댑터 연결
+        mainSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+        // 관심사2 - 소분류 스피너 설정
+        val subCategorySpinner = findViewById<Spinner>(R.id.interest2_infoModify)
+        var subSpinnerAdapter = ArrayAdapter.createFromResource(
+            this,
+            R.array.sub_category_title,
+            android.R.layout.simple_spinner_item
+        )
+        subCategorySpinner.adapter = subSpinnerAdapter
+        subSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+        // 스피너 동작 감지(다중 스피너)
+        mainCategorySpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                if (position == 0) { // 소분류
+                    subSpinnerAdapter = ArrayAdapter.createFromResource(
+                        this@InfoModifyActivity,
+                        R.array.sub_category_title,
+                        android.R.layout.simple_spinner_item
+                    )
+                } else if (position == 1) {    //엔터테인먼트·예술
+                    subSpinnerAdapter = ArrayAdapter.createFromResource(
+                        this@InfoModifyActivity,
+                        R.array.sub_category_entertainment,
+                        android.R.layout.simple_spinner_item
+                    )
+                } else if (position == 2) { //생활·노하우·쇼핑
+                    subSpinnerAdapter = ArrayAdapter.createFromResource(
+                        this@InfoModifyActivity,
+                        R.array.sub_category_dailyLife,
+                        android.R.layout.simple_spinner_item
+                    )
+                } else if (position == 3) {  //취미·여가·여행
+                    subSpinnerAdapter = ArrayAdapter.createFromResource(
+                        this@InfoModifyActivity,
+                        R.array.sub_category_hobby,
+                        android.R.layout.simple_spinner_item
+                    )
+                } else {    //지식·동향(4)
+                    subSpinnerAdapter = ArrayAdapter.createFromResource(
+                        this@InfoModifyActivity,
+                        R.array.sub_category_knowledge,
+                        android.R.layout.simple_spinner_item
+                    )
+                }
+
+                // 공통 기능
+                subCategorySpinner.adapter = subSpinnerAdapter
+                subSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+                subCategorySpinner.onItemSelectedListener =
+                    object : AdapterView.OnItemSelectedListener {
+                        override fun onItemSelected(
+                            parent: AdapterView<*>?,
+                            view: View?,
+                            position: Int,
+                            id: Long
+                        ) {
+//                            Toast.makeText(applicationContext, "2번째 스피너 완료", Toast.LENGTH_SHORT)
+//                                .show()
+
+                        }
+
+                        override fun onNothingSelected(parent: AdapterView<*>?) {
+                            Toast.makeText(applicationContext, "Nothing Selected", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                Toast.makeText(applicationContext, "Nothing Selected", Toast.LENGTH_SHORT).show()
+            }
+        }
+
         // 프로필 사진
             profileImage_infoModify.setOnClickListener{
             val intent = Intent(Intent.ACTION_PICK)
@@ -68,6 +159,7 @@ class InfoModifyActivity : AppCompatActivity() {
         }
 
         modifyBtn_infoModify.setOnClickListener {
+            interest = subCategorySpinner.selectedItem.toString()
             uploadImagetoFirebaseStorage()
         }
     }
@@ -121,7 +213,7 @@ class InfoModifyActivity : AppCompatActivity() {
         val ref = FirebaseDatabase.getInstance().getReference("/users/$uid")
         val ref_uid = FirebaseDatabase.getInstance().getReference("/users/$uid/uid")
         Log.d("database", "DB connected")
-        
+
         ref.addListenerForSingleValueEvent(object: ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 currentUser = snapshot.getValue(Users::class.java)
@@ -129,29 +221,21 @@ class InfoModifyActivity : AppCompatActivity() {
 
                 var user : Users = Users()
 
-                // val profileImg = currentUser!!.profile_img
-                // Log.d("img", "img stored in profileImg")
-
                 user.stuNum = currentUser!!.stuNum
                 user.nickname = nickname_infoModify.text.toString()
                 user.major = major_infoModify.selectedItem.toString()
                 user.lecture = lecture_infoModify.text.toString()
                 user.mbti = mbti_infoModify.selectedItem.toString()
-                user.interest = interest1_infoModify.selectedItem.toString()
+                user.interest = interest
                 user.msg = statusMessage_infoModify.text.toString()
                 user.profile_img = profileImageUrl
                 Log.d("프로필 재설정: ", "{$newPhotoPath}")
 
-                // 이미지는 추후 반영
-                // user.profile_img = currentUser!!.profile_img
-                // Log.d("profile", "Image stored")
 
                 ref.setValue(user)
                 Log.d("set user", "set user's value")
                 ref_uid.setValue(uid)
                 Log.d("set uid", "set uid")
-                // ref_stuNum.setValue(currentUser!!.stuNum)
-                // Log.d("set stuNum", "set stuNum")
             }
             override fun onCancelled(error: DatabaseError) {
 
@@ -160,9 +244,6 @@ class InfoModifyActivity : AppCompatActivity() {
         val intent = Intent(this, MyPageActivity::class.java)
         startActivity(intent)
     }
-
-    // String -> Editable 타입 변환
-    // fun String.toEditable(): Editable =  Editable.Factory.getInstance().newEditable(this)
 
     // 이전 화면으로 되돌리기 구현
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -186,5 +267,20 @@ class InfoModifyActivity : AppCompatActivity() {
         imm.hideSoftInputFromWindow(editText1.windowToken, 0)
         imm.hideSoftInputFromWindow(editText2.windowToken, 0)
         imm.hideSoftInputFromWindow(editText3.windowToken, 0)
+    }
+
+    //스피너
+    private fun SpinnerSettings(spinner : Spinner, arrayId : Int) {
+        ArrayAdapter.createFromResource(
+            this,
+            arrayId,
+            android.R.layout.simple_spinner_item
+        ).also { adapter ->
+            // Specify the layout to use when the list of choices appears
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            // Apply the adapter to the spinner
+            spinner.adapter = adapter
+        }
+
     }
 }
