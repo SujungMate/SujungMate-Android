@@ -15,7 +15,7 @@ var port = 3000
 var connection = mysql.createConnection({
     host:'localhost',
     user:'root',
-    password:'godwikimiki25!',
+    
     database:'diary'
 });
 
