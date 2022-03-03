@@ -22,7 +22,7 @@
 | --- | --- |
 | Android | Android Studio(Kotlin) |
 | Server | Firebase |
-| UI/UX | Pigma, Clip Studio |
+| UI/UX | Figma, Clip Studio |
 | 협업 및 버전 관리 | Git, Github, MS Teams |
 <br>
 
